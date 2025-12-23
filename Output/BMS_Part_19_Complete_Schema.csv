@@ -1,0 +1,56 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+tag,Entity,,N/A,EntityId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,Entity,,N/A,EntityId,uniqueidentifier,No,,,PK,,"EntityId,TagId","PRIMARY KEY CLUSTERED (EntityId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,Entity,,N/A,TagId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,Entity,,N/A,TagId,uniqueidentifier,No,,,PK,,"EntityId,TagId","PRIMARY KEY CLUSTERED (EntityId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,Entity,,N/A,IsActive,bit,Yes,,,,,,,,,,,,,,,NULL allowed,Optional field
+tag,Entity,,N/A,CreatedBy,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,Entity,,N/A,CreatedDate,datetime,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,Entity,,N/A,ModifiedBy,uniqueidentifier,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,Entity,,N/A,ModifiedDate,datetime,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,GLJournalEntryDetail,,N/A,GLJournalEntryDetailId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,GLJournalEntryDetail,,N/A,GLJournalEntryDetailId,uniqueidentifier,No,,,PK,,"GLJournalEntryDetailId,TagId","PRIMARY KEY CLUSTERED (GLJournalEntryDetailId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,GLJournalEntryDetail,,N/A,TagId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,GLJournalEntryDetail,,N/A,TagId,uniqueidentifier,No,,,PK,,"GLJournalEntryDetailId,TagId","PRIMARY KEY CLUSTERED (GLJournalEntryDetailId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,GLJournalEntryDetail,,N/A,IsActive,bit,Yes,,,,,,,,,,,,,,,NULL allowed,Optional field
+tag,GLJournalEntryDetail,,N/A,CreatedBy,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,GLJournalEntryDetail,,N/A,CreatedDate,datetime,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,GLJournalEntryHeader,,N/A,GLJournalEntryHeaderId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,GLJournalEntryHeader,,N/A,GLJournalEntryHeaderId,uniqueidentifier,No,,,PK,,"GLJournalEntryHeaderId,TagId","PRIMARY KEY CLUSTERED (GLJournalEntryHeaderId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,GLJournalEntryHeader,,N/A,TagId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,GLJournalEntryHeader,,N/A,TagId,uniqueidentifier,No,,,PK,,"GLJournalEntryHeaderId,TagId","PRIMARY KEY CLUSTERED (GLJournalEntryHeaderId ASC, TagId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,GLJournalEntryHeader,,N/A,IsActive,bit,Yes,,,,,,,,,,,,,,,NULL allowed,Optional field
+tag,GLJournalEntryHeader,,N/A,CreatedBy,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,GLJournalEntryHeader,,N/A,CreatedDate,datetime,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,GLJournalEntryHeader,,N/A,ModifiedBy,uniqueidentifier,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,GLJournalEntryHeader,,N/A,ModifiedDate,datetime,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,Vendor,,N/A,VendorId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,Vendor,,N/A,VendorId,uniqueidentifier,No,,,PK,,"TagId,VendorId","PRIMARY KEY CLUSTERED (TagId ASC, VendorId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,Vendor,,N/A,TagId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,Vendor,,N/A,TagId,uniqueidentifier,No,,,PK,,"TagId,VendorId","PRIMARY KEY CLUSTERED (TagId ASC, VendorId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,Vendor,,N/A,IsActive,bit,Yes,,,,,,,,,,,,,,,NULL allowed,Optional field
+tag,Vendor,,N/A,CreatedBy,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,Vendor,,N/A,CreatedDate,datetime,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,Vendor,,N/A,ModifiedBy,uniqueidentifier,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,Vendor,,N/A,ModifiedDate,datetime,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,VendorAccount,,N/A,VendorAccountId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,VendorAccount,,N/A,VendorAccountId,uniqueidentifier,No,,,PK,,"TagId,VendorAccountId","PRIMARY KEY CLUSTERED (TagId ASC, VendorAccountId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,VendorAccount,,N/A,TagId,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Primary key component
+tag,VendorAccount,,N/A,TagId,uniqueidentifier,No,,,PK,,"TagId,VendorAccountId","PRIMARY KEY CLUSTERED (TagId ASC, VendorAccountId ASC)",,,,,,,,,NOT NULL constraint; Primary Key,Primary key component
+tag,VendorAccount,,N/A,IsActive,bit,Yes,,,,,,,,,,,,,,,NULL allowed,Optional field
+tag,VendorAccount,,N/A,CreatedBy,uniqueidentifier,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,VendorAccount,,N/A,CreatedDate,datetime,No,,,,,,,,,,,,,,NOT NULL constraint,Audit field
+tag,VendorAccount,,N/A,ModifiedBy,uniqueidentifier,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+tag,VendorAccount,,N/A,ModifiedDate,datetime,Yes,,,,,,,,,,,,,,,NULL allowed,Audit field
+dbo,AddressDetailHistory,,N/A,AddressDetailId,N/A,N/A,,,,,,,,,,,,,IX_AddressDetailHistory_AddressDetailId,AddressDetailId ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AddressDetailHistory,,N/A,ChangedDate,N/A,N/A,,,,,,,,,,,,,IX_AddressDetailHistory_ChangedDate,ChangedDate ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AddressDetailHistory,,N/A,ChangeType,N/A,N/A,,,,,,,,,,,,,IX_AddressDetailHistory_ChangeType,ChangeType ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AddressDetailHistory,,N/A,CustomerId,N/A,N/A,,,,,,,,,,,,,IX_AddressDetailHistory_CustomerId,CustomerId ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AmountRange,,N/A,StartAmount,N/A,N/A,,,,,,,,,,,,,IX_AmountRange_Amount,"StartAmount ASC, EndAmount ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AmountRange,,N/A,EndAmount,N/A,N/A,,,,,,,,,,,,,IX_AmountRange_Amount,"StartAmount ASC, EndAmount ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AmountRange,,N/A,RuleSetId,N/A,N/A,,,,,,,,,,,,,IX_AmountRange_RuleSet,"RuleSetId ASC, RangeOrder ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,AmountRange,,N/A,RangeOrder,N/A,N/A,,,,,,,,,,,,,IX_AmountRange_RuleSet,"RuleSetId ASC, RangeOrder ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,ApprovalConfiguration,,N/A,ApprovalRuleId,N/A,N/A,,,,,,,,,,,,,IX_ApprovalConfiguration_ApprovalRule,ApprovalRuleId ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,ApprovalConfiguration,,N/A,CustomerId,N/A,N/A,,,,,,,,,,,,,IX_ApprovalConfiguration_Customer_Entity,"CustomerId ASC, EntityId ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,ApprovalConfiguration,,N/A,EntityId,N/A,N/A,,,,,,,,,,,,,IX_ApprovalConfiguration_Customer_Entity,"CustomerId ASC, EntityId ASC",NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
+dbo,ApprovalConfiguration,,N/A,WorkflowDefinitionId,N/A,N/A,,,,,,,,,,,,,IX_ApprovalConfiguration_WorkflowDefinition,WorkflowDefinitionId ASC,NONCLUSTERED,No,Index for performance,Referenced table not in this DDL file
