@@ -1,0 +1,183 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,DocumentStatus,,,,,,,,,,,,,,,,,,,,,,Table for storing document status information,
+dbo,DocumentStatus,,,DocumentStatusId,int IDENTITY(1,1),No,,Primary key column,PK,,DocumentStatusId,PRIMARY KEY CLUSTERED,,,,,,,DocumentStatusId,BTREE,Yes,NOT NULL constraint; IDENTITY column,Auto-incrementing primary key
+dbo,DocumentStatus,,,StatusCode,varchar(50),No,,Status code field,NOT NULL,,StatusCode,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentStatus,,,StatusCode,varchar(50),No,,Status code field,UK,,StatusCode,UNIQUE NONCLUSTERED,,,,,,,StatusCode,BTREE,Yes,UNIQUE constraint,Must be unique across table
+dbo,DocumentStatus,,,StatusName,varchar(100),No,,Status name field,NOT NULL,,StatusName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentStatus,,,StatusCategory,varchar(50),No,,Status category field,NOT NULL,,StatusCategory,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentStatus,,,DisplayOrder,int,No,,Display order field,NOT NULL,,DisplayOrder,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,,,,,,,,,,,,,,,,,,,,Table for storing document type information,
+dbo,DocumentType,,,DocumentTypeId,uniqueidentifier,No,,Primary key column,PK,,DocumentTypeId,PRIMARY KEY CLUSTERED,,,,,,,DocumentTypeId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,DocumentType,,,DocumentTypeName,varchar(max),No,,Document type name field,NOT NULL,,DocumentTypeName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,DocumentTypeDescirption,varchar(max),No,,Document type description field,NOT NULL,,DocumentTypeDescirption,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,CreatedDate,datetime,No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DocumentType,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DocumentType,,,AppName,varchar(max),Yes,,Application name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DocumentType,,,IsDeleted,bit,No,,Deletion flag field,NOT NULL,,IsDeleted,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DocumentType,,,DeletedBy,uniqueidentifier,Yes,,Deleted by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DocumentType,,,DeletedDate,datetime,Yes,,Deletion date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DomainMaster,,,,,,,,,,,,,,,,,,,,,,Table for storing domain master information,
+dbo,DomainMaster,,,DomainId,uniqueidentifier,No,,Primary key column,PK,,DomainId,PRIMARY KEY CLUSTERED,,,,,,,DomainId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,DomainMaster,,,DomainName,nvarchar(255),No,,Domain name field,NOT NULL,,DomainName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DraftSequence,,,,,,,,,,,,,,,,,,,,,,Table for storing draft sequence information,
+dbo,DraftSequence,,,DraftSequenceId,uniqueidentifier,No,,Primary key column,PK,PK_DraftSequence,DraftSequenceId,PRIMARY KEY CLUSTERED,,,,,,,DraftSequenceId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,DraftSequence,,,EntityId,uniqueidentifier,No,,Entity identifier field,NOT NULL,,EntityId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DraftSequence,,,EntityId,uniqueidentifier,No,,Entity identifier field,UK,UK_DraftSequence_Entity_Year,"EntityId, FiscalYear",UNIQUE NONCLUSTERED,,,,,,,"EntityId, FiscalYear",BTREE,Yes,UNIQUE constraint,Part of composite unique constraint
+dbo,DraftSequence,,,FiscalYear,int,Yes,,Fiscal year field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DraftSequence,,,FiscalYear,int,Yes,,Fiscal year field,UK,UK_DraftSequence_Entity_Year,"EntityId, FiscalYear",UNIQUE NONCLUSTERED,,,,,,,"EntityId, FiscalYear",BTREE,Yes,UNIQUE constraint,Part of composite unique constraint
+dbo,DraftSequence,,,LastSequenceNumber,int,No,,Last sequence number field,NOT NULL,,LastSequenceNumber,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,DraftSequence,,,CreatedBy,uniqueidentifier,Yes,,Created by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DraftSequence,,,CreatedDate,datetime,Yes,,Creation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DraftSequence,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,DraftSequence,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailDomain,,,,,,,,,,,,,,,,,,,,,,Table for storing email domain information,
+dbo,EmailDomain,,,EmailDomainId,uniqueidentifier,No,,Primary key column,PK,,EmailDomainId,PRIMARY KEY CLUSTERED,,,,,,,EmailDomainId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EmailDomain,,,DomainName,nvarchar(255),No,,Domain name field,NOT NULL,,DomainName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailDomain,,,DomainName,nvarchar(255),No,,Domain name field,UK,,DomainName,UNIQUE NONCLUSTERED,,,,,,,DomainName,BTREE,Yes,UNIQUE constraint,Must be unique across table
+dbo,EmailDomain,,,IsActive,bit,No,,Active status field,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailDomain,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailDomain,,,CreatedDate,datetime2(7),No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailDomain,,,UpdatedBy,uniqueidentifier,Yes,,Updated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailDomain,,,UpdatedDate,datetime2(7),Yes,,Update date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,,,,,,,,,,,,,,,,,,,,Table for storing email message information,
+dbo,EmailMessage,,,EmailMessageId,uniqueidentifier,No,,Primary key column,PK,,EmailMessageId,PRIMARY KEY CLUSTERED,,,,,,,EmailMessageId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EmailMessage,,,MessageId,varchar(500),No,,Message identifier field,NOT NULL,,MessageId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,MessageId,varchar(500),No,,Message identifier field,UK,,MessageId,UNIQUE NONCLUSTERED,,,,,,,MessageId,BTREE,Yes,UNIQUE constraint,Must be unique across table
+dbo,EmailMessage,,,Subject,nvarchar(500),Yes,,Email subject field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,SenderEmail,varchar(255),No,,Sender email field,NOT NULL,,SenderEmail,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,SenderName,nvarchar(255),Yes,,Sender name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,RecipientEmail,varchar(255),No,,Recipient email field,NOT NULL,,RecipientEmail,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,RecipientName,nvarchar(255),Yes,,Recipient name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,EmailBody,nvarchar(max),Yes,,Email body field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,ReceivedDate,datetime,No,,Received date field,NOT NULL,,ReceivedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,AttachmentCount,int,No,,Attachment count field,NOT NULL,,AttachmentCount,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,MsgFilePath,varchar(500),Yes,,Message file path field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,CustomerId,uniqueidentifier,Yes,,Customer identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,ClientEnterpriseId,uniqueidentifier,Yes,,Client enterprise identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,EntityId,uniqueidentifier,Yes,,Entity identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,CreatedDate,datetime,No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EmailMessage,,,CreatedBy,uniqueidentifier,Yes,,Created by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EmailMessage,,,IsDeleted,bit,No,,Deletion flag field,NOT NULL,,IsDeleted,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Enterprise,,,,,,,,,,,,,,,,,,,,,,Table for storing enterprise information,
+dbo,Enterprise,,,Id,uniqueidentifier,No,,Primary key column,PK,,Id,PRIMARY KEY CLUSTERED,,,,,,,Id,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,Enterprise,,,EnterpriseNumber,varchar(50),Yes,,Enterprise number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,CustomerId,uniqueidentifier,Yes,,Customer identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,EnterpriseName,nvarchar(130),Yes,,Enterprise name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,Description,nvarchar(256),Yes,,Description field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,IsActive,bit,Yes,,Active status field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,CreatedBy,uniqueidentifier,Yes,,Created by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,CreatedDate,datetime,Yes,,Creation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,DeactivatedDate,datetime,Yes,,Deactivation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,DeactivatedBy,uniqueidentifier,Yes,,Deactivated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Enterprise,,,IsCascadeDeactivation,bit,No,,Cascade deactivation flag,NOT NULL,,IsCascadeDeactivation,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,,,,,,,,,,,,,,,,,,,,Table for storing entitlement information,
+dbo,Entitlement,,,EntitlementId,uniqueidentifier,No,,Primary key column,PK,,EntitlementId,PRIMARY KEY CLUSTERED,,,,,,,EntitlementId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,Entitlement,,,EntitlementName,nvarchar(50),No,,Entitlement name field,NOT NULL,,EntitlementName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,EntitlementTypeId,uniqueidentifier,No,,Entitlement type identifier field,NOT NULL,,EntitlementTypeId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,EntitlementGroupId,uniqueidentifier,No,,Entitlement group identifier field,NOT NULL,,EntitlementGroupId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,IsActive,bit,No,,Active status field,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,CreatedDate,datetime2(7),No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,Entitlement,,,UpdatedBy,uniqueidentifier,Yes,,Updated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entitlement,,,UpdatedDate,datetime2(7),Yes,,Update date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntitlementGroup,,,,,,,,,,,,,,,,,,,,,,Table for storing entitlement group information,
+dbo,EntitlementGroup,,,EntitlementGroupId,uniqueidentifier,No,,Primary key column,PK,,EntitlementGroupId,PRIMARY KEY CLUSTERED,,,,,,,EntitlementGroupId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EntitlementGroup,,,GroupName,nvarchar(50),No,,Group name field,NOT NULL,,GroupName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementGroup,,,IsActive,bit,No,,Active status field,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementGroup,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementGroup,,,CreatedDate,datetime2(7),No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementGroup,,,UpdatedBy,uniqueidentifier,Yes,,Updated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntitlementGroup,,,UpdatedDate,datetime2(7),Yes,,Update date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntitlementGroup,,,PermissionId,uniqueidentifier,Yes,,Permission identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntitlementType,,,,,,,,,,,,,,,,,,,,,,Table for storing entitlement type information,
+dbo,EntitlementType,,,EntitlementTypeId,uniqueidentifier,No,,Primary key column,PK,,EntitlementTypeId,PRIMARY KEY CLUSTERED,,,,,,,EntitlementTypeId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EntitlementType,,,TypeCode,nvarchar(50),No,,Type code field,NOT NULL,,TypeCode,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementType,,,TypeCode,nvarchar(50),No,,Type code field,UK,,TypeCode,UNIQUE NONCLUSTERED,,,,,,,TypeCode,BTREE,Yes,UNIQUE constraint,Must be unique across table
+dbo,EntitlementType,,,TypeValue,nvarchar(50),No,,Type value field,NOT NULL,,TypeValue,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementType,,,IsActive,bit,No,,Active status field,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementType,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementType,,,CreatedDate,datetime2(7),No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntitlementType,,,UpdatedBy,uniqueidentifier,Yes,,Updated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntitlementType,,,UpdatedDate,datetime2(7),Yes,,Update date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,,,,,,,,,,,,,,,,,,,,Table for storing entity information,
+dbo,Entity,,,Id,uniqueidentifier,No,,Primary key column,PK,,Id,PRIMARY KEY CLUSTERED,,,,,,,Id,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,Entity,,,EntityNumber,varchar(50),Yes,,Entity number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,EntityNumber,varchar(50),Yes,,Entity number field,UK,UQ_Entity_EntityNumber_CustomerId,"EntityNumber, CustomerId",UNIQUE NONCLUSTERED,,,,,,,"EntityNumber, CustomerId",BTREE,Yes,UNIQUE constraint,Part of composite unique constraint
+dbo,Entity,,,EnterpriseId,uniqueidentifier,Yes,,Enterprise identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CustomerId,uniqueidentifier,Yes,,Customer identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CustomerId,uniqueidentifier,Yes,,Customer identifier field,UK,UQ_Entity_EntityNumber_CustomerId,"EntityNumber, CustomerId",UNIQUE NONCLUSTERED,,,,,,,"EntityNumber, CustomerId",BTREE,Yes,UNIQUE constraint,Part of composite unique constraint
+dbo,Entity,,,EntityName,nvarchar(130),Yes,,Entity name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CashOrAccuralBasisIndicator,varchar(10),Yes,,Cash or accrual basis indicator field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,IsActive,bit,Yes,,Active status field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CreatedBy,uniqueidentifier,Yes,,Created by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CreatedDate,datetime,Yes,,Creation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,EntityAddress,nvarchar(255),Yes,,Entity address field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,PreferredCurrencyId,uniqueidentifier,Yes,,Preferred currency identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,EIN,varchar(20),Yes,,Employer identification number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,UseMailingAddressAsPrimary,bit,Yes,,Use mailing address as primary flag,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,BusinessPartyId,uniqueidentifier,Yes,,Business party identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,ChartOfAccountsNameId,uniqueidentifier,Yes,,Chart of accounts name identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,EntityTypeId,uniqueidentifier,Yes,,Entity type identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CurrentFiscalYear,int,Yes,,Current fiscal year field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CurrentOpenPeriod,int,Yes,,Current open period field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,InceptionFicaslYear,int,Yes,,Inception fiscal year field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,InceptionFiscalPeriod,int,Yes,,Inception fiscal period field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,DeactivatedDate,datetime,Yes,,Deactivation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,DeactivatedBY,uniqueidentifier,Yes,,Deactivated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,FinancialInstitutionId,uniqueidentifier,Yes,,Financial institution identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,DocumentId,uniqueidentifier,Yes,,Document identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,SIN,varchar(20),Yes,,Social insurance number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,SSN,varchar(20),Yes,,Social security number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,Note,varchar(255),Yes,,Note field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,CalendarPatternNameId,uniqueidentifier,Yes,,Calendar pattern name identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,EntityShortName,varchar(50),Yes,,Entity short name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,Entity,,,IsCascadeDeactivation,bit,No,,Cascade deactivation flag,NOT NULL,,IsCascadeDeactivation,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityGroup,,,,,,,,,,,,,,,,,,,,,,Table for storing entity group information,
+dbo,EntityGroup,,,Id,uniqueidentifier,No,,Primary key column,PK,,Id,PRIMARY KEY CLUSTERED,,,,,,,Id,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EntityGroup,,,EntityGroupNumber,varchar(50),Yes,,Entity group number field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,EntityGroupNumber,varchar(50),Yes,,Entity group number field,UK,,EntityGroupNumber,UNIQUE NONCLUSTERED,,,,,,,EntityGroupNumber,BTREE,Yes,UNIQUE constraint,Must be unique across table
+dbo,EntityGroup,,,EnterpriseId,uniqueidentifier,Yes,,Enterprise identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,CustomerId,uniqueidentifier,Yes,,Customer identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,EntityGroupName,varchar(128),Yes,,Entity group name field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,Description,varchar(256),Yes,,Description field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,IsActive,bit,Yes,,Active status field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,CreatedBy,uniqueidentifier,Yes,,Created by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,CreatedDate,datetime,Yes,,Creation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroup,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroupMapping,,,,,,,,,,,,,,,,,,,,,,Table for storing entity group mapping information,
+dbo,EntityGroupMapping,,,EntityId,uniqueidentifier,No,,Entity identifier field,PK,,"EntityId, EntityGroupId",PRIMARY KEY CLUSTERED,,,,,,,"EntityId, EntityGroupId",BTREE,Yes,NOT NULL constraint,Part of composite primary key
+dbo,EntityGroupMapping,,,EntityGroupId,uniqueidentifier,No,,Entity group identifier field,PK,,"EntityId, EntityGroupId",PRIMARY KEY CLUSTERED,,,,,,,"EntityId, EntityGroupId",BTREE,Yes,NOT NULL constraint,Part of composite primary key
+dbo,EntityGroupMapping,,,IsActive,bit,Yes,,Active status field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroupMapping,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityGroupMapping,,,CreatedDate,datetime,Yes,,Creation date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroupMapping,,,ModifiedBy,uniqueidentifier,Yes,,Modified by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityGroupMapping,,,ModifiedDate,datetime,Yes,,Modification date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityHistory,,,,,,,,,,,,,,,,,,,,,,Table for storing entity history information,
+dbo,EntityHistory,,,HistoryId,uniqueidentifier,No,,Primary key column,PK,,HistoryId,PRIMARY KEY CLUSTERED,,,,,,,HistoryId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EntityHistory,,,EntityId,uniqueidentifier,No,,Entity identifier field,NOT NULL,,EntityId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityHistory,,,FieldName,nvarchar(100),No,,Field name,NOT NULL,,FieldName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityHistory,,,OldValue,nvarchar(max),Yes,,Old value field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityHistory,,,NewValue,nvarchar(max),Yes,,New value field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityHistory,,,ChangeType,nvarchar(10),No,,Change type field,NOT NULL,,ChangeType,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityHistory,,,ChangedBy,uniqueidentifier,Yes,,Changed by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityHistory,,,ChangedDate,datetime2(7),No,,Changed date field,NOT NULL,,ChangedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityHistory,,,ChangeReason,nvarchar(255),Yes,,Change reason field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityHistory,,,TransactionId,uniqueidentifier,Yes,,Transaction identifier field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,,,,,,,,,,,,,,,,,,,,Table for storing entity type information,
+dbo,EntityType,,,EntityTypeId,uniqueidentifier,No,,Primary key column,PK,,EntityTypeId,PRIMARY KEY CLUSTERED,,,,,,,EntityTypeId,BTREE,Yes,NOT NULL constraint,Primary key identifier
+dbo,EntityType,,,Description,nvarchar(255),Yes,,Description field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,CreatedBy,uniqueidentifier,No,,Created by user identifier,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityType,,,CreatedDate,datetime2(7),No,,Creation date field,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityType,,,UpdatedBy,uniqueidentifier,Yes,,Updated by user identifier,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,UpdatedDate,datetime2(7),Yes,,Update date field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,EntityIcon,nvarchar(50),Yes,,Entity icon field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,IsActive,bit,Yes,,Active status field,None,,,,,,,,,,,,No data integrity rules,Nullable field
+dbo,EntityType,,,TypeCode,nvarchar(50),No,,Type code field,NOT NULL,,TypeCode,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
+dbo,EntityType,,,TypeValue,nvarchar(50),No,,Type value field,NOT NULL,,TypeValue,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint,Required field
