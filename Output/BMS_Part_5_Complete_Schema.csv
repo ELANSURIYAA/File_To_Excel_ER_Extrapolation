@@ -1,0 +1,274 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,Country,Country table for storing country information,,CountryId,uniqueidentifier,No,,,PK,PK_Country,CountryId,PRIMARY KEY CLUSTERED ([CountryId] ASC),,,,,,,PK_Country,CountryId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Country,Country table for storing country information,,Iso,nvarchar(2),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,ISO country code - 2 characters
+dbo,Country,Country table for storing country information,,Iso3,nvarchar(3),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,ISO country code - 3 characters
+dbo,Country,Country table for storing country information,,IsoNumber,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,ISO numeric country code
+dbo,Country,Country table for storing country information,,PhoneCode,nvarchar(10),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Country phone code
+dbo,Country,Country table for storing country information,,CountryName,nvarchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Full country name
+dbo,Country,Country table for storing country information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,Country,Country table for storing country information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,Country,Country table for storing country information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,Country,Country table for storing country information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,Country,Country table for storing country information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,Country,Country table for storing country information,,PhoneNumberLength,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Expected phone number length for country
+dbo,Currency,Currency table for storing currency information,,CurrencyId,uniqueidentifier,No,,,PK,,CurrencyId,PRIMARY KEY CLUSTERED ([CurrencyId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Currency,Currency table for storing currency information,,CurrencyCode,varchar(3),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,3-character currency code
+dbo,Currency,Currency table for storing currency information,,CurrencyCode,varchar(3),No,,,UK,,CurrencyCode,UNIQUE NONCLUSTERED ([CurrencyCode] ASC),,,,,,,,,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on currency code
+dbo,Currency,Currency table for storing currency information,,CurrencyName,varchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Full currency name
+dbo,Currency,Currency table for storing currency information,,Symbol,nvarchar(5),Yes,,,None,,,,,,,,,,,,,Nullable field,Currency symbol
+dbo,Currency,Currency table for storing currency information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,Currency,Currency table for storing currency information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,Currency,Currency table for storing currency information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,Currency,Currency table for storing currency information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,Currency,Currency table for storing currency information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,Customer,Customer table for storing customer information,,CustomerId,uniqueidentifier,No,,,PK,,CustomerId,PRIMARY KEY CLUSTERED ([CustomerId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Customer,Customer table for storing customer information,,CustomerName,nvarchar(128),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Customer name
+dbo,Customer,Customer table for storing customer information,,CustomerTypeId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to customer type
+dbo,Customer,Customer table for storing customer information,,OfficeCode,nvarchar(25),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Office code for customer
+dbo,Customer,Customer table for storing customer information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,Customer,Customer table for storing customer information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,Customer,Customer table for storing customer information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,Customer,Customer table for storing customer information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,Customer,Customer table for storing customer information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,Customer,Customer table for storing customer information,,CustomerNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,Customer number
+dbo,Customer,Customer table for storing customer information,,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,Nullable field,Customer description
+dbo,Customer,Customer table for storing customer information,,TIN,varchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,Tax identification number
+dbo,Customer,Customer table for storing customer information,,TCCNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,TCC number
+dbo,Customer,Customer table for storing customer information,,UseMailingAddressAsPrimary,bit,Yes,,,None,,,,,,,,,,,,,Nullable field,Flag for using mailing address as primary
+dbo,Customer,Customer table for storing customer information,,BusinessPartyId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Business party identifier
+dbo,Customer,Customer table for storing customer information,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Date when customer was deactivated
+dbo,Customer,Customer table for storing customer information,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who deactivated the customer
+dbo,Customer,Customer table for storing customer information,,IsZenithCustomer,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Flag indicating if Zenith customer
+dbo,CustomerTeam,Customer team table for storing team information,,TeamId,uniqueidentifier,No,,,PK,,TeamId,PRIMARY KEY CLUSTERED ([TeamId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,CustomerTeam,Customer team table for storing team information,,TeamName,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Team name
+dbo,CustomerTeam,Customer team table for storing team information,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to customer
+dbo,CustomerTeam,Customer team table for storing team information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,CustomerTeam,Customer team table for storing team information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,CustomerTeam,Customer team table for storing team information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,CustomerTeam,Customer team table for storing team information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,CustomerTeam,Customer team table for storing team information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,TeamMemberId,uniqueidentifier,No,,,PK,,TeamMemberId,PRIMARY KEY CLUSTERED ([TeamMemberId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,TeamId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to team
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,UserRoleId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to user role
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,CustomerTeamMember,Customer team member table for storing team member information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,CustomerType,Customer type table for storing customer type information,,CustomerTypeId,uniqueidentifier,No,,,PK,,CustomerTypeId,PRIMARY KEY CLUSTERED ([CustomerTypeId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,CustomerType,Customer type table for storing customer type information,,TypeCode,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Customer type code
+dbo,CustomerType,Customer type table for storing customer type information,,TypeCode,nvarchar(50),No,,,UK,,TypeCode,UNIQUE NONCLUSTERED ([TypeCode] ASC),,,,,,,,,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on type code
+dbo,CustomerType,Customer type table for storing customer type information,,TypeValue,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Customer type value
+dbo,CustomerType,Customer type table for storing customer type information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,CustomerType,Customer type table for storing customer type information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,CustomerType,Customer type table for storing customer type information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,CustomerType,Customer type table for storing customer type information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,CustomerType,Customer type table for storing customer type information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,DataSet,Dataset table for storing dataset information,,DataSetId,uniqueidentifier,No,,,PK,,DataSetId,PRIMARY KEY CLUSTERED ([DataSetId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DataSet,Dataset table for storing dataset information,,DataSetName,nvarchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Dataset name
+dbo,DataSet,Dataset table for storing dataset information,,DataSetType,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Dataset type
+dbo,DataSet,Dataset table for storing dataset information,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DataSet,Dataset table for storing dataset information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DataSet,Dataset table for storing dataset information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DataSet,Dataset table for storing dataset information,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last updated the record
+dbo,DataSet,Dataset table for storing dataset information,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last updated
+dbo,DelegationActivationPeriod,Delegation activation period table,,DelegationActivationPeriodId,uniqueidentifier,No,,,PK,PK_DelegationActivationPeriod,DelegationActivationPeriodId,PRIMARY KEY CLUSTERED ([DelegationActivationPeriodId] ASC),,,,,,,PK_DelegationActivationPeriod,DelegationActivationPeriodId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DelegationActivationPeriod,Delegation activation period table,,UserDelegationId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to user delegation
+dbo,DelegationActivationPeriod,Delegation activation period table,,StartDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Delegation start date
+dbo,DelegationActivationPeriod,Delegation activation period table,,EndDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Delegation end date
+dbo,DelegationActivationPeriod,Delegation activation period table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DelegationActivationPeriod,Delegation activation period table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DelegationActivationPeriod,Delegation activation period table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,DelegationEntityAssignmentId,uniqueidentifier,No,,,PK,PK_DelegationEntityAssignment,DelegationEntityAssignmentId,PRIMARY KEY CLUSTERED ([DelegationEntityAssignmentId] ASC),,,,,,,PK_DelegationEntityAssignment,DelegationEntityAssignmentId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,UserDelegationId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to user delegation
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to customer
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,Id,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Generic ID field
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Entity identifier
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,EntityName,nvarchar(200),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Entity name
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,PendingApprovalCount,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Count of pending approvals
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DelegationEntityAssignment,Delegation entity assignment table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,DelegationEntityDelegateId,uniqueidentifier,No,,,PK,PK_DelegationEntityDelegate,DelegationEntityDelegateId,PRIMARY KEY CLUSTERED ([DelegationEntityDelegateId] ASC),,,,,,,PK_DelegationEntityDelegate,DelegationEntityDelegateId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,DelegationEntityAssignmentId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to delegation entity assignment
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,DelegationEntityAssignmentId,uniqueidentifier,No,,,UK,UQ_DelegationEntityDelegate,"DelegationEntityAssignmentId, UserId",UNIQUE NONCLUSTERED ([DelegationEntityAssignmentId] ASC [UserId] ASC),,,,,,,UQ_DelegationEntityDelegate,"DelegationEntityAssignmentId, UserId",NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on assignment and user
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,UserId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to user
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,UserId,uniqueidentifier,No,,,UK,UQ_DelegationEntityDelegate,"DelegationEntityAssignmentId, UserId",UNIQUE NONCLUSTERED ([DelegationEntityAssignmentId] ASC [UserId] ASC),,,,,,,UQ_DelegationEntityDelegate,"DelegationEntityAssignmentId, UserId",NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on assignment and user
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,DelegateOrder,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Order of delegate
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DelegationEntityDelegate,Delegation entity delegate table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DelegationStatusType,Delegation status type table,,DelegationStatusTypeId,int,No,,,PK,PK_DelegationStatusType,DelegationStatusTypeId,PRIMARY KEY CLUSTERED ([DelegationStatusTypeId] ASC),,,,,,,PK_DelegationStatusType,DelegationStatusTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DelegationStatusType,Delegation status type table,,StatusCode,varchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status code
+dbo,DelegationStatusType,Delegation status type table,,StatusCode,varchar(50),No,,,UK,UQ_DelegationStatusType_Code,StatusCode,UNIQUE NONCLUSTERED ([StatusCode] ASC),,,,,,,UQ_DelegationStatusType_Code,StatusCode,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on status code
+dbo,DelegationStatusType,Delegation status type table,,StatusName,varchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status name
+dbo,DelegationStatusType,Delegation status type table,,StatusDescription,varchar(255),Yes,,,None,,,,,,,,,,,,,Nullable field,Status description
+dbo,DelegationStatusType,Delegation status type table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DelegationStatusType,Delegation status type table,,DisplayOrder,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Display order
+dbo,DelegationStatusType,Delegation status type table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DelegationStatusType,Delegation status type table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DelegationStatusType,Delegation status type table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last modified the record
+dbo,DelegationStatusType,Delegation status type table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,DelegationTaskAuditLogId,uniqueidentifier,No,,,PK,PK_DelegationTaskAuditLog,DelegationTaskAuditLogId,PRIMARY KEY CLUSTERED ([DelegationTaskAuditLogId] ASC),,,,,,,PK_DelegationTaskAuditLog,DelegationTaskAuditLogId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,TaskId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to task
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,UserDelegationId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to user delegation
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,DelegationActivationPeriodId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to delegation activation period
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,OriginalUserId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Original user ID
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,DelegateUserId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Delegate user ID
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DelegationTaskAuditLog,Delegation task audit log table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DepositDistribution,Deposit distribution table,,DepositDistributionId,uniqueidentifier,No,,,PK,PK_DepositDistribution,DepositDistributionId,PRIMARY KEY CLUSTERED ([DepositDistributionId] ASC),,,,,,,PK_DepositDistribution,DepositDistributionId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DepositDistribution,Deposit distribution table,,DepositId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to deposit
+dbo,DepositDistribution,Deposit distribution table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to customer
+dbo,DepositDistribution,Deposit distribution table,,EntityId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to entity
+dbo,DepositDistribution,Deposit distribution table,,ChartOfAccountsId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to chart of accounts
+dbo,DepositDistribution,Deposit distribution table,,LineNumber,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Line number
+dbo,DepositDistribution,Deposit distribution table,,GlAccountNumber,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,GL account number
+dbo,DepositDistribution,Deposit distribution table,,GlAccountName,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Nullable field,GL account name
+dbo,DepositDistribution,Deposit distribution table,,LineItemDescription,nvarchar(1000),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Line item description
+dbo,DepositDistribution,Deposit distribution table,,Amount,decimal(15,2),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Distribution amount
+dbo,DepositDistribution,Deposit distribution table,,CommissionProcessed,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Commission processed flag
+dbo,DepositDistribution,Deposit distribution table,,CommissionProcessedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Commission processed date
+dbo,DepositDistribution,Deposit distribution table,,AppliedCommissionRuleId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Applied commission rule ID
+dbo,DepositDistribution,Deposit distribution table,,CalculatedCommissionAmount,decimal(15,2),Yes,,,None,,,,,,,,,,,,,Nullable field,Calculated commission amount
+dbo,DepositDistribution,Deposit distribution table,,Notes,nvarchar(1000),Yes,,,None,,,,,,,,,,,,,Nullable field,Notes
+dbo,DepositDistribution,Deposit distribution table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DepositDistribution,Deposit distribution table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DepositDistribution,Deposit distribution table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last modified the record
+dbo,DepositDistribution,Deposit distribution table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,DepositDistribution,Deposit distribution table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DepositHeader,Deposit header table,,DepositId,uniqueidentifier,No,,,PK,,DepositId,PRIMARY KEY CLUSTERED ([DepositId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DepositHeader,Deposit header table,,DepositNumber,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,Deposit number
+dbo,DepositHeader,Deposit header table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to customer
+dbo,DepositHeader,Deposit header table,,EntityId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to entity
+dbo,DepositHeader,Deposit header table,,BankAccountId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to bank account
+dbo,DepositHeader,Deposit header table,,DepositDate,date,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deposit date
+dbo,DepositHeader,Deposit header table,,DepositAmount,decimal(15,2),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deposit amount
+dbo,DepositHeader,Deposit header table,,DepositSource,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Nullable field,Deposit source
+dbo,DepositHeader,Deposit header table,,DepositPaymentMethodTypeId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deposit payment method type ID
+dbo,DepositHeader,Deposit header table,,ExternalTransactionReference,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Nullable field,External transaction reference
+dbo,DepositHeader,Deposit header table,,BankTransactionRegisterId,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Nullable field,Bank transaction register ID
+dbo,DepositHeader,Deposit header table,,VendorId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to vendor
+dbo,DepositHeader,Deposit header table,,PayorName,nvarchar(255),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Payor name
+dbo,DepositHeader,Deposit header table,,PayorAccountNumber,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,Payor account number
+dbo,DepositHeader,Deposit header table,,DepositStatusId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deposit status ID
+dbo,DepositHeader,Deposit header table,,ClearedDate,date,Yes,,,None,,,,,,,,,,,,,Nullable field,Cleared date
+dbo,DepositHeader,Deposit header table,,TriggersCommission,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Triggers commission flag
+dbo,DepositHeader,Deposit header table,,CommissionProcessed,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Commission processed flag
+dbo,DepositHeader,Deposit header table,,CommissionProcessedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Commission processed date
+dbo,DepositHeader,Deposit header table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DepositHeader,Deposit header table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DepositHeader,Deposit header table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last modified the record
+dbo,DepositHeader,Deposit header table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,Document,Document table for storing document information,,DocumentId,uniqueidentifier,No,,,PK,,DocumentId,PRIMARY KEY CLUSTERED ([DocumentId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Document,Document table for storing document information,,DocumentTypeId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to document type
+dbo,Document,Document table for storing document information,,Name,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Document name
+dbo,Document,Document table for storing document information,,DocLink,varchar(500),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Document link
+dbo,Document,Document table for storing document information,,DocumentData,binary(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Document binary data
+dbo,Document,Document table for storing document information,,EntryDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Entry date
+dbo,Document,Document table for storing document information,,Note,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Document note
+dbo,Document,Document table for storing document information,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who created the record
+dbo,Document,Document table for storing document information,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was created
+dbo,Document,Document table for storing document information,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last modified the record
+dbo,Document,Document table for storing document information,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,Document,Document table for storing document information,,Status,varchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,Document status
+dbo,Document,Document table for storing document information,,DeactivatedBY,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who deactivated the document
+dbo,Document,Document table for storing document information,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Date when document was deactivated
+dbo,Document,Document table for storing document information,,OriginalFileName,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Original file name
+dbo,Document,Document table for storing document information,,Description,varchar(256),Yes,,,None,,,,,,,,,,,,,Nullable field,Document description
+dbo,Document,Document table for storing document information,,FileSize,bigint,Yes,,,None,,,,,,,,,,,,,Nullable field,File size
+dbo,Document,Document table for storing document information,,FileTypeId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,File type ID
+dbo,Document,Document table for storing document information,,DocumentCategoryTypeId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Document category type ID
+dbo,Document,Document table for storing document information,,ProcessingMethodTypeId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Processing method type ID
+dbo,Document,Document table for storing document information,,HighPriority,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,High priority flag
+dbo,Document,Document table for storing document information,,IsDeleted,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deleted flag
+dbo,Document,Document table for storing document information,,DeletedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Deleted date
+dbo,Document,Document table for storing document information,,DeletedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who deleted the document
+dbo,Document,Document table for storing document information,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to customer
+dbo,Document,Document table for storing document information,,ClientEnterpriseId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Client enterprise ID
+dbo,Document,Document table for storing document information,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to entity
+dbo,Document,Document table for storing document information,,ThumbnailPath,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Thumbnail path
+dbo,Document,Document table for storing document information,,LastViewedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Last viewed date
+dbo,Document,Document table for storing document information,,LastViewedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last viewed the document
+dbo,Document,Document table for storing document information,,TotalPages,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Total pages
+dbo,Document,Document table for storing document information,,ParentDocumentId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Parent document ID
+dbo,Document,Document table for storing document information,,IsOriginal,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Original document flag
+dbo,Document,Document table for storing document information,,DocumentVersion,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Document version
+dbo,Document,Document table for storing document information,,DocumentStatusId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Document status ID
+dbo,Document,Document table for storing document information,,IsRecycleBin,bit,Yes,,,None,,,,,,,,,,,,,Nullable field,Recycle bin flag
+dbo,Document,Document table for storing document information,,IsHardDelete,bit,Yes,,,None,,,,,,,,,,,,,Nullable field,Hard delete flag
+dbo,DocumentCategoryType,Document category type table,,DocumentCategoryTypeId,int,No,,,PK,PK_DocumentCategoryType,DocumentCategoryTypeId,PRIMARY KEY CLUSTERED ([DocumentCategoryTypeId] ASC),,,,,,,PK_DocumentCategoryType,DocumentCategoryTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index - Identity column
+dbo,DocumentCategoryType,Document category type table,,CategoryName,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Category name
+dbo,DocumentCategoryType,Document category type table,,CategoryCode,nvarchar(20),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Category code
+dbo,DocumentCategoryType,Document category type table,,CategoryDescription,nvarchar(200),Yes,,,None,,,,,,,,,,,,,Nullable field,Category description
+dbo,DocumentCategoryType,Document category type table,,SortOrder,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Sort order
+dbo,DocumentCategoryType,Document category type table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DocumentCategoryType,Document category type table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DocumentCategoryType,Document category type table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DocumentCategoryType,Document category type table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who last modified the record
+dbo,DocumentCategoryType,Document category type table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,DocumentHistory,Document history table for tracking changes,,HistoryId,uniqueidentifier,No,,,PK,,HistoryId,PRIMARY KEY CLUSTERED ([HistoryId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DocumentHistory,Document history table for tracking changes,,DocumentId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to document
+dbo,DocumentHistory,Document history table for tracking changes,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to customer
+dbo,DocumentHistory,Document history table for tracking changes,,FieldName,nvarchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Field name that changed
+dbo,DocumentHistory,Document history table for tracking changes,,OldValue,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Nullable field,Old value
+dbo,DocumentHistory,Document history table for tracking changes,,NewValue,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Nullable field,New value
+dbo,DocumentHistory,Document history table for tracking changes,,ChangeType,nvarchar(10),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Type of change
+dbo,DocumentHistory,Document history table for tracking changes,,ChangedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who made the change
+dbo,DocumentHistory,Document history table for tracking changes,,ChangedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when change was made
+dbo,DocumentHistory,Document history table for tracking changes,,ChangeReason,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Nullable field,Reason for change
+dbo,DocumentHistory,Document history table for tracking changes,,TransactionId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Transaction ID
+dbo,DocumentProcessingQueue,Document processing queue table,,QueueId,uniqueidentifier,No,,,PK,,QueueId,PRIMARY KEY CLUSTERED ([QueueId] ASC),,,,,,,,,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,DocumentProcessingQueue,Document processing queue table,,SourceTypeId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Source type ID
+dbo,DocumentProcessingQueue,Document processing queue table,,EmailMessageId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Email message ID
+dbo,DocumentProcessingQueue,Document processing queue table,,UploadedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who uploaded
+dbo,DocumentProcessingQueue,Document processing queue table,,FileName,varchar(500),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,File name
+dbo,DocumentProcessingQueue,Document processing queue table,,FileSize,bigint,Yes,,,None,,,,,,,,,,,,,Nullable field,File size
+dbo,DocumentProcessingQueue,Document processing queue table,,FileExtension,varchar(50),Yes,,,None,,,,,,,,,,,,,Nullable field,File extension
+dbo,DocumentProcessingQueue,Document processing queue table,,FileHash,varchar(128),Yes,,,None,,,,,,,,,,,,,Nullable field,File hash
+dbo,DocumentProcessingQueue,Document processing queue table,,ExtractedPath,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Extracted path
+dbo,DocumentProcessingQueue,Document processing queue table,,ScannedPath,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Scanned path
+dbo,DocumentProcessingQueue,Document processing queue table,,CurrentStageId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Current stage ID
+dbo,DocumentProcessingQueue,Document processing queue table,,ProcessingStatusId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Processing status ID
+dbo,DocumentProcessingQueue,Document processing queue table,,ScanStatusId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Scan status ID
+dbo,DocumentProcessingQueue,Document processing queue table,,ScanDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Scan date
+dbo,DocumentProcessingQueue,Document processing queue table,,InfectionInfo,nvarchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Infection information
+dbo,DocumentProcessingQueue,Document processing queue table,,ECMUploadDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,ECM upload date
+dbo,DocumentProcessingQueue,Document processing queue table,,ECMDocId,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,ECM document ID
+dbo,DocumentProcessingQueue,Document processing queue table,,DocumentId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to document
+dbo,DocumentProcessingQueue,Document processing queue table,,OrchestratorCalled,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Orchestrator called flag
+dbo,DocumentProcessingQueue,Document processing queue table,,OrchestratorDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Orchestrator date
+dbo,DocumentProcessingQueue,Document processing queue table,,Priority,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Priority
+dbo,DocumentProcessingQueue,Document processing queue table,,RequiresReview,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Requires review flag
+dbo,DocumentProcessingQueue,Document processing queue table,,ReviewNotes,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Nullable field,Review notes
+dbo,DocumentProcessingQueue,Document processing queue table,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to customer
+dbo,DocumentProcessingQueue,Document processing queue table,,ClientEnterpriseId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Client enterprise ID
+dbo,DocumentProcessingQueue,Document processing queue table,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Reference to entity
+dbo,DocumentProcessingQueue,Document processing queue table,,CreatedDate,datetime,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DocumentProcessingQueue,Document processing queue table,,ProcessingStartDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Processing start date
+dbo,DocumentProcessingQueue,Document processing queue table,,ProcessingEndDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Processing end date
+dbo,DocumentProcessingQueue,Document processing queue table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,User who created the record
+dbo,DocumentProcessingQueue,Document processing queue table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Nullable field,Date when record was last modified
+dbo,DocumentProcessingQueue,Document processing queue table,,IsDeleted,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Deleted flag
+dbo,DocumentProcessingQueue,Document processing queue table,,DocumentTypeId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to document type
+dbo,DocumentProcessingQueue,Document processing queue table,,FileTypeId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,File type ID
+dbo,DocumentProcessingQueue,Document processing queue table,,DocumentCategoryTypeId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Document category type ID
+dbo,DocumentProcessingQueue,Document processing queue table,,ProcessingMethodTypeId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Processing method type ID
+dbo,DocumentProcessingQueue,Document processing queue table,,Note,varchar(500),Yes,,,None,,,,,,,,,,,,,Nullable field,Note
+dbo,DocumentProcessingQueue,Document processing queue table,,Description,varchar(256),Yes,,,None,,,,,,,,,,,,,Nullable field,Description
+dbo,DocumentProcessingQueue,Document processing queue table,,HighPriority,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,High priority flag
+dbo,DocumentProcessingQueue,Document processing queue table,,DocumentStatusId,int,Yes,,,None,,,,,,,,,,,,,Nullable field,Document status ID
+dbo,DocumentProcessStatus,Document process status table,,DocumentProcessStatusId,int,No,,,PK,PK_DocumentProcessStatus,DocumentProcessStatusId,PRIMARY KEY CLUSTERED ([DocumentProcessStatusId] ASC),,,,,,,PK_DocumentProcessStatus,DocumentProcessStatusId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index - Identity column
+dbo,DocumentProcessStatus,Document process status table,,DocumentProcessStatusTypeId,int,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Reference to document process status type
+dbo,DocumentProcessStatus,Document process status table,,StatusName,nvarchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status name
+dbo,DocumentProcessStatus,Document process status table,,StatusCode,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status code
+dbo,DocumentProcessStatus,Document process status table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DocumentProcessStatus,Document process status table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DocumentProcessStatus,Document process status table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
+dbo,DocumentProcessStatusType,Document process status type table,,DocumentProcessStatusTypeId,int,No,,,PK,PK_DocumentProcessStatusType,DocumentProcessStatusTypeId,PRIMARY KEY CLUSTERED ([DocumentProcessStatusTypeId] ASC),,,,,,,PK_DocumentProcessStatusType,DocumentProcessStatusTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index - Identity column
+dbo,DocumentProcessStatusType,Document process status type table,,StatusTypeName,nvarchar(100),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status type name
+dbo,DocumentProcessStatusType,Document process status type table,,StatusTypeCode,nvarchar(50),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Status type code
+dbo,DocumentProcessStatusType,Document process status type table,,ModuleFunctionId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Nullable field,Module function ID
+dbo,DocumentProcessStatusType,Document process status type table,,IsActive,bit,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Active status flag
+dbo,DocumentProcessStatusType,Document process status type table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,User who created the record
+dbo,DocumentProcessStatusType,Document process status type table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL constraint,,,,,,,,,,,NOT NULL constraint enforced,Date when record was created
