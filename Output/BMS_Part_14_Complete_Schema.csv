@@ -1,0 +1,105 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,TaskDecision,,N/A,DecisionId,uniqueidentifier,No,,Primary key column,PK,PK_TaskDecision,DecisionId,PRIMARY KEY CLUSTERED ([DecisionId] ASC),,,,,,,PK_TaskDecision,DecisionId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,TaskDecision,,N/A,TaskId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskDecision,,N/A,DecisionType,nvarchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 50 character limit
+dbo,TaskDecision,,N/A,DecisionReason,nvarchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TaskDecision,,N/A,DecisionComments,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Optional field with unlimited length
+dbo,TaskDecision,,N/A,DecisionTime,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp field
+dbo,TaskDecision,,N/A,DecisionBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskDecision,,N/A,DecisionOnBehalfOf,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskDecision,,N/A,IsFinalDecision,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,TaskDecision,,N/A,DataVersionAtDecision,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskDecision,,N/A,DecisionMetadata,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Optional field with unlimited length
+dbo,TaskDecision,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskDecision,,N/A,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp field
+dbo,TaskDecision,,N/A,StatusId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskGroup,,N/A,GroupId,uniqueidentifier,No,,Primary key column,PK,PK_TaskGroup,GroupId,PRIMARY KEY CLUSTERED ([GroupId] ASC),,,,,,,PK_TaskGroup,GroupId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,TaskGroup,,N/A,InstanceId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskGroup,,N/A,StepId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskGroup,,N/A,ApproverGroupId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskGroup,,N/A,GroupType,nvarchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 50 character limit
+dbo,TaskGroup,,N/A,ApprovalStrategy,nvarchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 50 character limit
+dbo,TaskGroup,,N/A,MinimumApprovals,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskGroup,,N/A,Status,nvarchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 50 character limit
+dbo,TaskGroup,,N/A,CreatedAt,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp field
+dbo,TaskGroup,,N/A,CompletedAt,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskGroup,,N/A,TimeoutAt,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskGroup,,N/A,TotalTasks,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskGroup,,N/A,CompletedTasks,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskGroup,,N/A,ApprovedTasks,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskGroup,,N/A,RejectedTasks,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskGroup,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TaskGroup,,N/A,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp field
+dbo,TaskGroup,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskGroup,,N/A,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskGroup,,N/A,StatusId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskGroup,,N/A,StepStatusId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskList,,N/A,TaskId,uniqueidentifier,No,,Primary key column,PK,,TaskId,PRIMARY KEY CLUSTERED ([TaskId] ASC),,,,,,,TaskId,TaskId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,TaskList,,N/A,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,TaskTypeId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskList,,N/A,TaskPriorityId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskList,,N/A,AssignedToUserId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,AssignedByUserId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TaskList,,N/A,IsDeleted,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TaskList,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,CreatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskList,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskList,,N/A,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskList,,N/A,TaskStatusTypeId,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TaskPriority,,N/A,TaskPriorityId,int,No,,Primary key column with identity,PK,,TaskPriorityId,PRIMARY KEY CLUSTERED ([TaskPriorityId] ASC),,,,,,,TaskPriorityId,TaskPriorityId ASC,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with identity and clustered index
+dbo,TaskPriority,,N/A,PriorityName,nvarchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 50 character limit
+dbo,TaskPriority,,N/A,PriorityLevel,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required integer field
+dbo,TaskPriority,,N/A,Description,nvarchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TaskPriority,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TaskPriority,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskPriority,,N/A,CreatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskPriority,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskPriority,,N/A,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskStatusType,,N/A,TaskStatusTypeId,int,No,,Primary key column with identity,PK,,TaskStatusTypeId,PRIMARY KEY CLUSTERED ([TaskStatusTypeId] ASC),,,,,,,TaskStatusTypeId,TaskStatusTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with identity and clustered index
+dbo,TaskStatusType,,N/A,TaskStatusTypeName,nvarchar(100),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 100 character limit
+dbo,TaskStatusType,,N/A,Description,nvarchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TaskStatusType,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TaskStatusType,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskStatusType,,N/A,CreatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskStatusType,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskStatusType,,N/A,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskType,,N/A,TaskTypeId,int,No,,Primary key column with identity,PK,,TaskTypeId,PRIMARY KEY CLUSTERED ([TaskTypeId] ASC),,,,,,,TaskTypeId,TaskTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with identity and clustered index
+dbo,TaskType,,N/A,TaskTypeName,nvarchar(100),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 100 character limit
+dbo,TaskType,,N/A,Description,nvarchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TaskType,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TaskType,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskType,,N/A,CreatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TaskType,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TaskType,,N/A,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,Template,,N/A,TemplateId,uniqueidentifier,No,,Primary key column,PK,,TemplateId,PRIMARY KEY CLUSTERED ([TemplateId] ASC),,,,,,,TemplateId,TemplateId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Template,,N/A,TemplateName,nvarchar(100),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field with 100 character limit
+dbo,Template,,N/A,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,Template,,N/A,IsStandardTemplate,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,Template,,N/A,IsActive,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,Template,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,Template,,N/A,CreatedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp field
+dbo,Template,,N/A,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,Template,,N/A,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,,,Optional timestamp field
+dbo,TemplateInfo,,N/A,Id,uniqueidentifier,No,,Primary key column,PK,,Id,PRIMARY KEY CLUSTERED ([Id] ASC),,,,,,,Id,Id ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,TemplateInfo,,N/A,TemplateID,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TemplateInfo,,N/A,Header,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TemplateInfo,,N/A,Column_Name,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,TemplateInfo,,N/A,ColumnValue,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Optional field with 255 character limit
+dbo,Test,,N/A,id,int,No,,Identity column,None,,,IDENTITY(50,1),,,,,,,,,,,IDENTITY(50,1),Identity column starting at 50 with increment of 1
+dbo,Test,,N/A,somecolumn,varchar(10),Yes,,,None,,,,,,,,,,,,,,,Optional field with 10 character limit
+dbo,Test,,N/A,Id1,int,Yes,,,None,,,,,,,,,,,,,,,Optional integer field
+dbo,TimeRecords,,N/A,TimeRecordID,uniqueidentifier,No,,Primary key column,PK,,TimeRecordID,PRIMARY KEY CLUSTERED ([TimeRecordID] ASC),,,,,,,TimeRecordID,TimeRecordID ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,TimeRecords,,N/A,UserID,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TimeRecords,,N/A,Date,date,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required date field
+dbo,TimeRecords,,N/A,Hours,decimal(10,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required decimal field with precision 10 and scale 2
+dbo,TimeRecords,,N/A,IsAdminTime,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,TimeRecords,,N/A,EnterpriseID,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TimeRecords,,N/A,EntityID,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TimeRecords,,N/A,TaskID,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Optional field
+dbo,TimeRecords,,N/A,Rate,decimal(10,2),Yes,,,None,,,,,,,,,,,,,,,Optional decimal field with precision 10 and scale 2
+dbo,TimeRecords,,N/A,Billable,bit,Yes,,,None,,,,,,,,,,,,,,,Optional boolean field
+dbo,TimeRecords,,N/A,Description,nvarchar(500),Yes,,,None,,,,,,,,,,,,,,,Optional field with 500 character limit
+dbo,TimeRecords,,N/A,TimesheetID,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field
+dbo,TimeRecords,,N/A,IsActive,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
