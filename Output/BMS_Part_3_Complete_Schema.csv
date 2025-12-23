@@ -1,0 +1,179 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,BankAccountHistory,Bank Account History tracking table,,HistoryId,uniqueidentifier,No,,Primary key for history records,PK,PRIMARY KEY CLUSTERED,HistoryId,PRIMARY KEY CLUSTERED ([HistoryId] ASC),,,,,,,PRIMARY KEY CLUSTERED,HistoryId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountHistory,Bank Account History tracking table,,BankAccountId,uniqueidentifier,No,,,NOT NULL,,BankAccountId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field for bank account reference
+dbo,BankAccountHistory,Bank Account History tracking table,,CustomerId,uniqueidentifier,Yes,,,None,,CustomerId,,,,,,,,,,,,Optional field,Nullable customer reference
+dbo,BankAccountHistory,Bank Account History tracking table,,FieldName,nvarchar(100),No,,,NOT NULL,,FieldName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field name for tracking changes
+dbo,BankAccountHistory,Bank Account History tracking table,,OldValue,nvarchar(max),Yes,,,None,,OldValue,,,,,,,,,,,,Optional field,Nullable field for old value storage
+dbo,BankAccountHistory,Bank Account History tracking table,,NewValue,nvarchar(max),Yes,,,None,,NewValue,,,,,,,,,,,,Optional field,Nullable field for new value storage
+dbo,BankAccountHistory,Bank Account History tracking table,,ChangeType,nvarchar(10),No,,,NOT NULL,,ChangeType,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field for change type
+dbo,BankAccountHistory,Bank Account History tracking table,,ChangedBy,uniqueidentifier,Yes,,,None,,ChangedBy,,,,,,,,,,,,Optional field,Nullable field for user who made change
+dbo,BankAccountHistory,Bank Account History tracking table,,ChangedDate,datetime2(7),No,,,NOT NULL,,ChangedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp for change
+dbo,BankAccountHistory,Bank Account History tracking table,,ChangeReason,nvarchar(255),Yes,,,None,,ChangeReason,,,,,,,,,,,,Optional field,Nullable field for change reason
+dbo,BankAccountHistory,Bank Account History tracking table,,TransactionId,uniqueidentifier,Yes,,,None,,TransactionId,,,,,,,,,,,,Optional field,Nullable transaction reference
+dbo,BankAccountHolder,Bank Account Holder information table,,BankAccountHolderId,uniqueidentifier,No,,Primary key for bank account holder,PK,PK__BankAccountHolder,BankAccountHolderId,PRIMARY KEY CLUSTERED ([BankAccountHolderId] ASC),,,,,,,PK__BankAccountHolder,BankAccountHolderId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountHolder,Bank Account Holder information table,,BankAccountId,uniqueidentifier,No,,,NOT NULL,,BankAccountId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required bank account reference
+dbo,BankAccountHolder,Bank Account Holder information table,,IsPrimaryAccountHolder,bit,Yes,,,None,,IsPrimaryAccountHolder,,,,,,,,,,,,Optional field,Nullable boolean for primary holder status
+dbo,BankAccountHolder,Bank Account Holder information table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,CustomerId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required customer reference
+dbo,BankAccountHolder,Bank Account Holder information table,,EntityId,uniqueidentifier,No,,,NOT NULL,,EntityId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required entity reference
+dbo,BankAccountHolder,Bank Account Holder information table,,AccountHolderName,varchar(255),Yes,,,None,,AccountHolderName,,,,,,,,,,,,Optional field,Nullable account holder name
+dbo,BankAccountHolder,Bank Account Holder information table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankAccountHolder,Bank Account Holder information table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankAccountHolder,Bank Account Holder information table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankAccountHolder,Bank Account Holder information table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankAccountHolder,Bank Account Holder information table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,HistoryId,uniqueidentifier,No,,Primary key for history records,PK,PRIMARY KEY CLUSTERED,HistoryId,PRIMARY KEY CLUSTERED ([HistoryId] ASC),,,,,,,PRIMARY KEY CLUSTERED,HistoryId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,BankAccountHolderId,uniqueidentifier,No,,,NOT NULL,,BankAccountHolderId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required bank account holder reference
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,CustomerId,uniqueidentifier,Yes,,,None,,CustomerId,,,,,,,,,,,,Optional field,Nullable customer reference
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,FieldName,nvarchar(100),No,,,NOT NULL,,FieldName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field name for tracking changes
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,OldValue,nvarchar(max),Yes,,,None,,OldValue,,,,,,,,,,,,Optional field,Nullable field for old value storage
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,NewValue,nvarchar(max),Yes,,,None,,NewValue,,,,,,,,,,,,Optional field,Nullable field for new value storage
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,ChangeType,nvarchar(10),No,,,NOT NULL,,ChangeType,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field for change type
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,ChangedBy,uniqueidentifier,Yes,,,None,,ChangedBy,,,,,,,,,,,,Optional field,Nullable field for user who made change
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,ChangedDate,datetime2(7),No,,,NOT NULL,,ChangedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp for change
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,ChangeReason,nvarchar(255),Yes,,,None,,ChangeReason,,,,,,,,,,,,Optional field,Nullable field for change reason
+dbo,BankAccountHolderHistory,Bank Account Holder History tracking table,,TransactionId,uniqueidentifier,Yes,,,None,,TransactionId,,,,,,,,,,,,Optional field,Nullable transaction reference
+dbo,BankAccountSignee,Bank Account Signee information table,,BankAccountSigneeId,uniqueidentifier,No,,Primary key for bank account signee,PK,PK__BankAccountSignee,BankAccountSigneeId,PRIMARY KEY CLUSTERED ([BankAccountSigneeId] ASC),,,,,,,PK__BankAccountSignee,BankAccountSigneeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountSignee,Bank Account Signee information table,,UserId,uniqueidentifier,No,,,NOT NULL,,UserId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required user reference
+dbo,BankAccountSignee,Bank Account Signee information table,,BankAccountId,uniqueidentifier,Yes,,,None,,BankAccountId,,,,,,,,,,,,Optional field,Nullable bank account reference
+dbo,BankAccountSignee,Bank Account Signee information table,,IsActive,int,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status
+dbo,BankAccountSignee,Bank Account Signee information table,,IsApproverEligible,int,Yes,,,None,,IsApproverEligible,,,,,,,,,,,,Optional field,Nullable approver eligibility flag
+dbo,BankAccountSignee,Bank Account Signee information table,,ApplySignatureOnApproval,int,Yes,,,None,,ApplySignatureOnApproval,,,,,,,,,,,,Optional field,Nullable signature application flag
+dbo,BankAccountSignee,Bank Account Signee information table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankAccountSignee,Bank Account Signee information table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankAccountSignee,Bank Account Signee information table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankAccountSignee,Bank Account Signee information table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankAccountSignee,Bank Account Signee information table,,ApprovedLimit,decimal(18,2),Yes,,,None,,ApprovedLimit,,,,,,,,,,,,Optional field,Nullable approved limit amount
+dbo,BankAccountSignee,Bank Account Signee information table,,HasMaxApprovalLimit,bit,Yes,,,None,,HasMaxApprovalLimit,,,,,,,,,,,,Optional field,Nullable max approval limit flag
+dbo,BankAccountSignee,Bank Account Signee information table,,SortOrder,int,Yes,,,None,,SortOrder,,,,,,,,,,,,Optional field,Nullable sort order
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,HistoryId,uniqueidentifier,No,,Primary key for history records,PK,PRIMARY KEY CLUSTERED,HistoryId,PRIMARY KEY CLUSTERED ([HistoryId] ASC),,,,,,,PRIMARY KEY CLUSTERED,HistoryId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,BankAccountSigneeId,uniqueidentifier,No,,,NOT NULL,,BankAccountSigneeId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required bank account signee reference
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,CustomerId,uniqueidentifier,Yes,,,None,,CustomerId,,,,,,,,,,,,Optional field,Nullable customer reference
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,FieldName,nvarchar(100),No,,,NOT NULL,,FieldName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field name for tracking changes
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,OldValue,nvarchar(max),Yes,,,None,,OldValue,,,,,,,,,,,,Optional field,Nullable field for old value storage
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,NewValue,nvarchar(max),Yes,,,None,,NewValue,,,,,,,,,,,,Optional field,Nullable field for new value storage
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,ChangeType,nvarchar(10),No,,,NOT NULL,,ChangeType,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field for change type
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,ChangedBy,uniqueidentifier,Yes,,,None,,ChangedBy,,,,,,,,,,,,Optional field,Nullable field for user who made change
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,ChangedDate,datetime2(7),No,,,NOT NULL,,ChangedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required timestamp for change
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,ChangeReason,nvarchar(255),Yes,,,None,,ChangeReason,,,,,,,,,,,,Optional field,Nullable field for change reason
+dbo,BankAccountSigneeHistory,Bank Account Signee History tracking table,,TransactionId,uniqueidentifier,Yes,,,None,,TransactionId,,,,,,,,,,,,Optional field,Nullable transaction reference
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,BankAccountStatusTypeId,int,No,,Primary key for status type,PK,PK__BankAccountStatusType,BankAccountStatusTypeId,PRIMARY KEY CLUSTERED ([BankAccountStatusTypeId] ASC),,,,,,,PK__BankAccountStatusType,BankAccountStatusTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,TypeCode,varchar(100),Yes,,,None,,TypeCode,,,,,,,,,,,,Optional field,Nullable type code
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,TypeValue,varchar(255),Yes,,,None,,TypeValue,,,,,,,,,,,,Optional field,Nullable type value
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankAccountStatusType,Bank Account Status Type lookup table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankAccountType,Bank Account Type lookup table,,BankAccountTypeId,int,No,,Primary key for account type,PK,PK__BankAccountType,BankAccountTypeId,PRIMARY KEY CLUSTERED ([BankAccountTypeId] ASC),,,,,,,PK__BankAccountType,BankAccountTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankAccountType,Bank Account Type lookup table,,TypeCode,varchar(100),Yes,,,None,,TypeCode,,,,,,,,,,,,Optional field,Nullable type code
+dbo,BankAccountType,Bank Account Type lookup table,,TypeValue,varchar(255),Yes,,,None,,TypeValue,,,,,,,,,,,,Optional field,Nullable type value
+dbo,BankAccountType,Bank Account Type lookup table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankAccountType,Bank Account Type lookup table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankAccountType,Bank Account Type lookup table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankAccountType,Bank Account Type lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankAccountType,Bank Account Type lookup table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,BankEntitlementTypeId,int,No,,Primary key for entitlement type,PK,PK__BankEntitlementType,BankEntitlementTypeId,PRIMARY KEY CLUSTERED ([BankEntitlementTypeId] ASC),,,,,,,PK__BankEntitlementType,BankEntitlementTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,TypeCode,varchar(100),Yes,,,None,,TypeCode,,,,,,,,,,,,Optional field,Nullable type code
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,TypeValue,varchar(255),Yes,,,None,,TypeValue,,,,,,,,,,,,Optional field,Nullable type value
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankEntitlementType,Bank Entitlement Type lookup table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankingEntitlements,Banking Entitlements configuration table,,BankingEntitlementsId,uniqueidentifier,No,,Primary key for banking entitlements,PK,PK__BankingEntitlements,BankingEntitlementsId,PRIMARY KEY CLUSTERED ([BankingEntitlementsId] ASC),,,,,,,PK__BankingEntitlements,BankingEntitlementsId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankingEntitlements,Banking Entitlements configuration table,,BankEntitlementType,int,Yes,,,None,,BankEntitlementType,,,,,,,,,,,,Optional field,Nullable entitlement type reference
+dbo,BankingEntitlements,Banking Entitlements configuration table,,ShortName,varchar(100),Yes,,,None,,ShortName,,,,,,,,,,,,Optional field,Nullable short name
+dbo,BankingEntitlements,Banking Entitlements configuration table,,Description,varchar(255),Yes,,,None,,Description,,,,,,,,,,,,Optional field,Nullable description
+dbo,BankingEntitlements,Banking Entitlements configuration table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankingEntitlements,Banking Entitlements configuration table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankingEntitlements,Banking Entitlements configuration table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankingEntitlements,Banking Entitlements configuration table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankingEntitlements,Banking Entitlements configuration table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BankingFileProcessingAttempts,Banking File Processing Attempts tracking table,,AttemptId,int,No,,Primary key with identity,PK,PRIMARY KEY CLUSTERED,AttemptId,PRIMARY KEY CLUSTERED ([AttemptId] ASC),,,,,,,PRIMARY KEY CLUSTERED,AttemptId,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankingFileProcessingAttempts,Banking File Processing Attempts tracking table,,FileId,bigint,No,,,NOT NULL,,FileId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required file reference
+dbo,BankingFileProcessingAttempts,Banking File Processing Attempts tracking table,,AttemptNumber,int,No,,,NOT NULL,,AttemptNumber,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required attempt number
+dbo,BankingFileProcessingAttempts,Banking File Processing Attempts tracking table,,AttemptTime,datetime,No,,,NOT NULL,,AttemptTime,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required attempt timestamp
+dbo,BankingFiles,Banking Files management table,,FileId,bigint,No,,Primary key with identity,PK,PRIMARY KEY CLUSTERED,FileId,PRIMARY KEY CLUSTERED ([FileId] ASC),,,,,,,PRIMARY KEY CLUSTERED,FileId,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankingFiles,Banking Files management table,,FileName,nvarchar(255),No,,,NOT NULL,,FileName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required file name
+dbo,BankingFiles,Banking Files management table,,Direction,nvarchar(20),No,,,NOT NULL,,Direction,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required direction indicator
+dbo,BankingFiles,Banking Files management table,,Date,date,No,,,NOT NULL,,Date,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required date
+dbo,BankingFiles,Banking Files management table,,StartTime,datetime,Yes,,,None,,StartTime,,,,,,,,,,,,Optional field,Nullable start time
+dbo,BankingFiles,Banking Files management table,,EndTime,datetime,Yes,,,None,,EndTime,,,,,,,,,,,,Optional field,Nullable end time
+dbo,BankingFiles,Banking Files management table,,RunTimeSeconds,int,Yes,,,None,,RunTimeSeconds,,,,,,,,,,,,Optional field,Nullable runtime in seconds
+dbo,BankingFiles,Banking Files management table,,TransactionTypeId,int,Yes,,,None,,TransactionTypeId,,,,,,,,,,,,Optional field,Nullable transaction type reference
+dbo,BankingFiles,Banking Files management table,,FileSizeMB,decimal(10,2),Yes,,,None,,FileSizeMB,,,,,,,,,,,,Optional field,Nullable file size in MB
+dbo,BankingFiles,Banking Files management table,,SenderBankId,int,Yes,,,None,,SenderBankId,,,,,,,,,,,,Optional field,Nullable sender bank reference
+dbo,BankingFiles,Banking Files management table,,Customer,nvarchar(100),Yes,,,None,,Customer,,,,,,,,,,,,Optional field,Nullable customer name
+dbo,BankingFiles,Banking Files management table,,Entity,nvarchar(100),Yes,,,None,,Entity,,,,,,,,,,,,Optional field,Nullable entity name
+dbo,BankingFiles,Banking Files management table,,ReceiverBankId,int,Yes,,,None,,ReceiverBankId,,,,,,,,,,,,Optional field,Nullable receiver bank reference
+dbo,BankingFiles,Banking Files management table,,Status,nvarchar(20),No,,,NOT NULL,,Status,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status indicator
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,id,int,No,,Primary key with identity,PK,PRIMARY KEY CLUSTERED,id,PRIMARY KEY CLUSTERED ([id] ASC),,,,,,,PRIMARY KEY CLUSTERED,id,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,bankName,nvarchar(50),No,,,NOT NULL,,bankName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required bank name
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,path,nvarchar(500),No,,,NOT NULL,,path,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required path
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,status,nvarchar(20),No,,,NOT NULL,,status,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,fileExtension,nvarchar(10),No,,,NOT NULL,,fileExtension,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required file extension
+dbo,BankingRouterInterfaces,Banking Router Interfaces configuration table,,interfaceName,nvarchar(20),No,,,NOT NULL,,interfaceName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required interface name
+dbo,BankingTransactions,Banking Transactions configuration table,,TransactionTypeId,int,No,,Primary key with identity,PK,PRIMARY KEY CLUSTERED,TransactionTypeId,PRIMARY KEY CLUSTERED ([TransactionTypeId] ASC),,,,,,,PRIMARY KEY CLUSTERED,TransactionTypeId,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankingTransactions,Banking Transactions configuration table,,Name,nvarchar(50),No,,,NOT NULL,,Name,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required transaction name
+dbo,BankingTransactions,Banking Transactions configuration table,,IsRealTime,bit,No,,,NOT NULL,,IsRealTime,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required real-time flag
+dbo,BankingTransactions,Banking Transactions configuration table,,Destination,nvarchar(255),No,,,NOT NULL,,Destination,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required destination
+dbo,BankingTransactions,Banking Transactions configuration table,,Active,bit,Yes,,,None,,Active,,,,,,,,,,,,Optional field,Nullable active status
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,BankPaymentStatusId,int,No,,Primary key with identity,PK,PK_BankPaymentStatus,BankPaymentStatusId,PRIMARY KEY CLUSTERED ([BankPaymentStatusId] ASC),,,,,,,PK_BankPaymentStatus,BankPaymentStatusId,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,BankPaymentStatusTypeId,int,No,,,NOT NULL,,BankPaymentStatusTypeId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status type reference
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,StatusName,nvarchar(100),No,,,NOT NULL,,StatusName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status name
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,StatusCode,nvarchar(50),No,,,NOT NULL,,StatusCode,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status code
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BankPaymentStatus,Bank Payment Status lookup table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,BankPaymentStatusTypeId,int,No,,Primary key with identity,PK,PK_BankPaymentStatusType,BankPaymentStatusTypeId,PRIMARY KEY CLUSTERED ([BankPaymentStatusTypeId] ASC),,,,,,,PK_BankPaymentStatusType,BankPaymentStatusTypeId,CLUSTERED,Yes,NOT NULL constraint enforced; IDENTITY(1,1),Primary key with auto-increment
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,StatusTypeName,nvarchar(100),No,,,NOT NULL,,StatusTypeName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status type name
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,StatusTypeCode,nvarchar(50),No,,,NOT NULL,,StatusTypeCode,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status type code
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,ModuleFunctionId,uniqueidentifier,Yes,,,None,,ModuleFunctionId,,,,,,,,,,,,Optional field,Nullable module function reference
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BankPaymentStatusType,Bank Payment Status Type lookup table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,BankRTNId,uniqueidentifier,No,,Primary key for bank RTN,PK,PK__BankRTN,BankRTNId,PRIMARY KEY CLUSTERED ([BankRTNId] ASC),,,,,,,PK__BankRTN,BankRTNId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,FinancialInstitutionId,uniqueidentifier,Yes,,,None,,FinancialInstitutionId,,,,,,,,,,,,Optional field,Nullable financial institution reference
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,RTNNumber,varchar(50),Yes,,,None,,RTNNumber,,,,,,,,,,,,Optional field,Nullable RTN number
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,IsActive,bit,Yes,,,None,,IsActive,,,,,,,,,,,,Optional field,Nullable active status flag
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,,,Optional field,Nullable creator reference
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,CreatedDate,datetime,Yes,,,None,,CreatedDate,,,,,,,,,,,,Optional field,Nullable creation timestamp
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BankRTN,Bank RTN (Routing Transit Number) table,,ModifiedDate,datetime,Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BatchDirection,Batch Direction lookup table,,BatchDirectionId,int,No,,Primary key for batch direction,PK,PK_BatchDirection,BatchDirectionId,PRIMARY KEY CLUSTERED ([BatchDirectionId] ASC),,,,,,,PK_BatchDirection,BatchDirectionId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BatchDirection,Batch Direction lookup table,,BatchDirectionName,varchar(50),No,,,NOT NULL,,BatchDirectionName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required direction name
+dbo,BatchDirection,Batch Direction lookup table,,BatchDirectionCode,varchar(50),No,,,NOT NULL,,BatchDirectionCode,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required direction code
+dbo,BatchDirection,Batch Direction lookup table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
+dbo,BatchDirection,Batch Direction lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BatchDirection,Batch Direction lookup table,,CreatedDate,datetime,No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BatchMethodType,Batch Method Type lookup table,,BatchMethodTypeId,int,No,,Primary key for batch method type,PK,PK_BatchMethodType,BatchMethodTypeId,PRIMARY KEY CLUSTERED ([BatchMethodTypeId] ASC),,,,,,,PK_BatchMethodType,BatchMethodTypeId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BatchMethodType,Batch Method Type lookup table,,BatchMethodTypeName,varchar(50),No,,,NOT NULL,,BatchMethodTypeName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required method type name
+dbo,BatchMethodType,Batch Method Type lookup table,,BatchMethodTypeCode,varchar(50),No,,,NOT NULL,,BatchMethodTypeCode,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required method type code
+dbo,BatchMethodType,Batch Method Type lookup table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
+dbo,BatchMethodType,Batch Method Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BatchMethodType,Batch Method Type lookup table,,CreatedDate,datetime,No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BatchStatus,Batch Status lookup table,,BatchStatusId,int,No,,Primary key for batch status,PK,PK_BatchStatus,BatchStatusId,PRIMARY KEY CLUSTERED ([BatchStatusId] ASC),,,,,,,PK_BatchStatus,BatchStatusId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BatchStatus,Batch Status lookup table,,BatchStatusName,varchar(50),No,,,NOT NULL,,BatchStatusName,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status name
+dbo,BatchStatus,Batch Status lookup table,,BatchStatusCode,varchar(50),No,,,NOT NULL,,BatchStatusCode,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required status code
+dbo,BatchStatus,Batch Status lookup table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
+dbo,BatchStatus,Batch Status lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BatchStatus,Batch Status lookup table,,CreatedDate,datetime,No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,BillDistributionId,uniqueidentifier,No,,Primary key for bill distribution,PK,PK_BillDistribution_BillDistributionId,BillDistributionId,PRIMARY KEY CLUSTERED ([BillDistributionId] ASC),,,,,,,PK_BillDistribution_BillDistributionId,BillDistributionId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,BillId,uniqueidentifier,No,,,NOT NULL,,BillId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required bill reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,CustomerId,uniqueidentifier,No,,,NOT NULL,,CustomerId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required customer reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,EntityId,uniqueidentifier,No,,,NOT NULL,,EntityId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required entity reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,ChartOfAccountsId,uniqueidentifier,No,,,NOT NULL,,ChartOfAccountsId,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required chart of accounts reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,LineNumber,int,No,,,NOT NULL,,LineNumber,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required line number
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,GlAccountNumber,nvarchar(50),No,,,NOT NULL,,GlAccountNumber,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required GL account number
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,GlAccountName,nvarchar(255),Yes,,,None,,GlAccountName,,,,,,,,,,,,Optional field,Nullable GL account name
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,LineItemDescription,nvarchar(1000),No,,,NOT NULL,,LineItemDescription,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required line item description
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,Amount,decimal(15,2),No,,,NOT NULL,,Amount,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required amount
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,Is1099Eligible,bit,No,,,NOT NULL,,Is1099Eligible,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required 1099 eligibility flag
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,DistributionType,nvarchar(20),No,,,NOT NULL,,DistributionType,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required distribution type
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,DistributionPercentage,decimal(5,2),Yes,,,None,,DistributionPercentage,,,,,,,,,,,,Optional field,Nullable distribution percentage
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,ParentBillId,uniqueidentifier,Yes,,,None,,ParentBillId,,,,,,,,,,,,Optional field,Nullable parent bill reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creator reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required creation timestamp
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,,,Optional field,Nullable modifier reference
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,ModifiedDate,datetime2(7),Yes,,,None,,ModifiedDate,,,,,,,,,,,,Optional field,Nullable modification timestamp
+dbo,BillDistribution,Bill Distribution table for accounting distribution,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required active flag
