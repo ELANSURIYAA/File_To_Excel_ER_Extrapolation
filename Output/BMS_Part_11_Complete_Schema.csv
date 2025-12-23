@@ -1,0 +1,139 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,Note,Note table for storing notes and comments,,NoteId,uniqueidentifier,No,,Primary key column,PK,,NoteId,PRIMARY KEY CLUSTERED ([NoteId] ASC),,,,,,,PK_Note_NoteId,NoteId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Note,Note table for storing notes and comments,,CustomerId,uniqueidentifier,No,,,NOT NULL,,CustomerId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,Note,Note table for storing notes and comments,,EntityId,uniqueidentifier,Yes,,,None,,EntityId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,Note,Note table for storing notes and comments,,RefEntityObjectTypeId,int,Yes,,,None,,RefEntityObjectTypeId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,Note,Note table for storing notes and comments,,RefEntityObjectId,nvarchar(255),Yes,,,None,,RefEntityObjectId,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,Note,Note table for storing notes and comments,,ParentNoteId,uniqueidentifier,Yes,,,None,,ParentNoteId,,,,,,,,,,BTREE,No,Nullable field,Optional field for hierarchical notes
+dbo,Note,Note table for storing notes and comments,,RootNoteId,uniqueidentifier,Yes,,,None,,RootNoteId,,,,,,,,,,BTREE,No,Nullable field,Optional field for hierarchical notes
+dbo,Note,Note table for storing notes and comments,,AuthorId,uniqueidentifier,Yes,,,None,,AuthorId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,Note,Note table for storing notes and comments,,Content,nvarchar(max),Yes,,,None,,Content,,,,,,,,,,BTREE,No,Nullable field,Optional field with unlimited length
+dbo,Note,Note table for storing notes and comments,,Mentions,nvarchar(max),Yes,,,None,,Mentions,,,,,,,,,,BTREE,No,Nullable field,Optional field with unlimited length
+dbo,Note,Note table for storing notes and comments,,ThreadDepth,int,Yes,,,None,,ThreadDepth,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,Note,Note table for storing notes and comments,,Metadata,nvarchar(max),Yes,,,None,,Metadata,,,,,,,,,,BTREE,No,Nullable field,Optional field with unlimited length
+dbo,Note,Note table for storing notes and comments,,IsDeleted,bit,Yes,,,None,,IsDeleted,,,,,,,,,,BTREE,No,Nullable field,Optional boolean field
+dbo,Note,Note table for storing notes and comments,,IsSystemNote,bit,Yes,,,None,,IsSystemNote,,,,,,,,,,BTREE,No,Nullable field,Optional boolean field
+dbo,Note,Note table for storing notes and comments,,TaskId,nvarchar(255),Yes,,,None,,TaskId,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,Note,Note table for storing notes and comments,,CreatedBy,uniqueidentifier,Yes,,,None,,CreatedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,Note,Note table for storing notes and comments,,CreatedDate,datetime2(7),Yes,,,None,,CreatedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,Note,Note table for storing notes and comments,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,Note,Note table for storing notes and comments,,ModifiedDate,datetime2(7),Yes,,,None,,ModifiedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,OutboundACH,Outbound ACH payment transactions table,,OutboundACHId,uniqueidentifier,No,,Primary key column,PK,,OutboundACHId,PRIMARY KEY CLUSTERED ([OutboundACHId] ASC),,,,,,,PK_OutboundACH_OutboundACHId,OutboundACHId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,OutboundACH,Outbound ACH payment transactions table,,PaymentId,uniqueidentifier,No,,,NOT NULL,,PaymentId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,OutboundACH,Outbound ACH payment transactions table,,PaymentId,uniqueidentifier,No,,,UK,,PaymentId,UNIQUE NONCLUSTERED ([PaymentId] ASC),,,,,,,UK_OutboundACH_PaymentId,PaymentId,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on PaymentId
+dbo,OutboundACH,Outbound ACH payment transactions table,,ACHTransactionType,nvarchar(10),No,,,NOT NULL,,ACHTransactionType,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 10
+dbo,OutboundACH,Outbound ACH payment transactions table,,PayeeAccountNumber,nvarchar(50),No,,,NOT NULL,,PayeeAccountNumber,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 50
+dbo,OutboundACH,Outbound ACH payment transactions table,,PayeeRoutingNumber,nvarchar(20),No,,,NOT NULL,,PayeeRoutingNumber,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 20
+dbo,OutboundACH,Outbound ACH payment transactions table,,PayeeBankName,nvarchar(255),Yes,,,None,,PayeeBankName,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,OutboundACH,Outbound ACH payment transactions table,,ACHEffectiveDate,date,No,,,NOT NULL,,ACHEffectiveDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required date field
+dbo,OutboundACH,Outbound ACH payment transactions table,,SECCode,nvarchar(3),No,,,NOT NULL,,SECCode,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 3
+dbo,OutboundACH,Outbound ACH payment transactions table,,ACHTraceNumber,nvarchar(15),Yes,,,None,,ACHTraceNumber,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 15
+dbo,OutboundACH,Outbound ACH payment transactions table,,ACHBatchNumber,nvarchar(7),Yes,,,None,,ACHBatchNumber,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 7
+dbo,OutboundACH,Outbound ACH payment transactions table,,ACHCompanyId,nvarchar(10),Yes,,,None,,ACHCompanyId,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 10
+dbo,OutboundACH,Outbound ACH payment transactions table,,ReturnReason,nvarchar(255),Yes,,,None,,ReturnReason,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,OutboundACH,Outbound ACH payment transactions table,,ReturnDate,date,Yes,,,None,,ReturnDate,,,,,,,,,,BTREE,No,Nullable field,Optional date field
+dbo,OutboundACH,Outbound ACH payment transactions table,,NotificationOfChange,nvarchar(255),Yes,,,None,,NotificationOfChange,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,OutboundACH,Outbound ACH payment transactions table,,PositivePayTransmitted,bit,No,,,NOT NULL,,PositivePayTransmitted,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,OutboundACH,Outbound ACH payment transactions table,,PositivePayDate,date,Yes,,,None,,PositivePayDate,,,,,,,,,,BTREE,No,Nullable field,Optional date field
+dbo,OutboundCheck,Outbound check payment transactions table,,OutboundCheckId,uniqueidentifier,No,,Primary key column,PK,,OutboundCheckId,PRIMARY KEY CLUSTERED ([OutboundCheckId] ASC),,,,,,,PK_OutboundCheck_OutboundCheckId,OutboundCheckId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,OutboundCheck,Outbound check payment transactions table,,PaymentId,uniqueidentifier,No,,,NOT NULL,,PaymentId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,OutboundCheck,Outbound check payment transactions table,,PaymentId,uniqueidentifier,No,,,UK,,PaymentId,UNIQUE NONCLUSTERED ([PaymentId] ASC),,,,,,,UK_OutboundCheck_PaymentId,PaymentId,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on PaymentId
+dbo,OutboundCheck,Outbound check payment transactions table,,CheckNumber,int,No,,,NOT NULL,,CheckNumber,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required integer field
+dbo,OutboundCheck,Outbound check payment transactions table,,CheckDate,date,No,,,NOT NULL,,CheckDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required date field
+dbo,OutboundCheck,Outbound check payment transactions table,,PrintedDate,datetime2(7),Yes,,,None,,PrintedDate,,,,,,,,,,BTREE,No,Nullable field,Optional datetime field with precision 7
+dbo,OutboundCheck,Outbound check payment transactions table,,MailedDate,datetime2(7),Yes,,,None,,MailedDate,,,,,,,,,,BTREE,No,Nullable field,Optional datetime field with precision 7
+dbo,OutboundCheck,Outbound check payment transactions table,,ClearedDate,date,Yes,,,None,,ClearedDate,,,,,,,,,,BTREE,No,Nullable field,Optional date field
+dbo,OutboundCheck,Outbound check payment transactions table,,IsVoided,bit,No,,,NOT NULL,,IsVoided,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,OutboundCheck,Outbound check payment transactions table,,VoidReason,nvarchar(500),Yes,,,None,,VoidReason,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 500
+dbo,OutboundCheck,Outbound check payment transactions table,,VoidedDate,datetime2(7),Yes,,,None,,VoidedDate,,,,,,,,,,BTREE,No,Nullable field,Optional datetime field with precision 7
+dbo,OutboundCheck,Outbound check payment transactions table,,VoidedBy,uniqueidentifier,Yes,,,None,,VoidedBy,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,OutboundCheck,Outbound check payment transactions table,,StopPaymentRequested,bit,No,,,NOT NULL,,StopPaymentRequested,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,OutboundCheck,Outbound check payment transactions table,,StopPaymentDate,datetime2(7),Yes,,,None,,StopPaymentDate,,,,,,,,,,BTREE,No,Nullable field,Optional datetime field with precision 7
+dbo,OutboundCheck,Outbound check payment transactions table,,StopPaymentReason,nvarchar(500),Yes,,,None,,StopPaymentReason,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 500
+dbo,OutboundCheck,Outbound check payment transactions table,,StopPaymentFee,decimal(10,2),Yes,,,None,,StopPaymentFee,,,,,,,,,,BTREE,No,Nullable field,Optional decimal field with precision 10 scale 2
+dbo,OutboundCheck,Outbound check payment transactions table,,PositivePayTransmitted,bit,No,,,NOT NULL,,PositivePayTransmitted,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,OutboundCheck,Outbound check payment transactions table,,PositivePayDate,date,Yes,,,None,,PositivePayDate,,,,,,,,,,BTREE,No,Nullable field,Optional date field
+dbo,OutboundOther,Outbound other payment method transactions table,,OutboundOtherId,uniqueidentifier,No,,Primary key column,PK,,OutboundOtherId,PRIMARY KEY CLUSTERED ([OutboundOtherId] ASC),,,,,,,PK_OutboundOther_OutboundOtherId,OutboundOtherId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,OutboundOther,Outbound other payment method transactions table,,PaymentId,uniqueidentifier,No,,,NOT NULL,,PaymentId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,OutboundOther,Outbound other payment method transactions table,,PaymentId,uniqueidentifier,No,,,UK,,PaymentId,UNIQUE NONCLUSTERED ([PaymentId] ASC),,,,,,,UK_OutboundOther_PaymentId,PaymentId,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on PaymentId
+dbo,OutboundOther,Outbound other payment method transactions table,,ExternalTransactionId,nvarchar(100),Yes,,,None,,ExternalTransactionId,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,OutboundOther,Outbound other payment method transactions table,,ExternalConfirmationCode,nvarchar(100),Yes,,,None,,ExternalConfirmationCode,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,OutboundOther,Outbound other payment method transactions table,,PaymentInstructions,nvarchar(1000),Yes,,,None,,PaymentInstructions,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 1000
+dbo,OutboundOther,Outbound other payment method transactions table,,PaymentMetadata,nvarchar(max),Yes,,,None,,PaymentMetadata,,,,,,,,,,BTREE,No,Nullable field,Optional field with unlimited length
+dbo,OutboundOther,Outbound other payment method transactions table,,ProcessingFee,decimal(10,2),Yes,,,None,,ProcessingFee,,,,,,,,,,BTREE,No,Nullable field,Optional decimal field with precision 10 scale 2
+dbo,OutboundOther,Outbound other payment method transactions table,,ExternalSystemName,nvarchar(100),Yes,,,None,,ExternalSystemName,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,OutboundOther,Outbound other payment method transactions table,,PaymentSubTypeId,int,No,,,NOT NULL,,PaymentSubTypeId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required integer field
+dbo,OutboundWire,Outbound wire transfer transactions table,,OutboundWireId,uniqueidentifier,No,,Primary key column,PK,,OutboundWireId,PRIMARY KEY CLUSTERED ([OutboundWireId] ASC),,,,,,,PK_OutboundWire_OutboundWireId,OutboundWireId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,OutboundWire,Outbound wire transfer transactions table,,PaymentId,uniqueidentifier,No,,,NOT NULL,,PaymentId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,OutboundWire,Outbound wire transfer transactions table,,PaymentId,uniqueidentifier,No,,,UK,,PaymentId,UNIQUE NONCLUSTERED ([PaymentId] ASC),,,,,,,UK_OutboundWire_PaymentId,PaymentId,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on PaymentId
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryName,nvarchar(255),No,,,NOT NULL,,BeneficiaryName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 255
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryAccountNumber,nvarchar(50),No,,,NOT NULL,,BeneficiaryAccountNumber,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 50
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryBankName,nvarchar(255),No,,,NOT NULL,,BeneficiaryBankName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 255
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryBankAddress,nvarchar(500),Yes,,,None,,BeneficiaryBankAddress,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 500
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryBankSWIFT,nvarchar(11),Yes,,,None,,BeneficiaryBankSWIFT,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 11
+dbo,OutboundWire,Outbound wire transfer transactions table,,BeneficiaryBankABA,nvarchar(9),Yes,,,None,,BeneficiaryBankABA,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 9
+dbo,OutboundWire,Outbound wire transfer transactions table,,IntermediaryBankName,nvarchar(255),Yes,,,None,,IntermediaryBankName,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,OutboundWire,Outbound wire transfer transactions table,,IntermediaryBankSWIFT,nvarchar(11),Yes,,,None,,IntermediaryBankSWIFT,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 11
+dbo,OutboundWire,Outbound wire transfer transactions table,,WireReference,nvarchar(100),Yes,,,None,,WireReference,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,OutboundWire,Outbound wire transfer transactions table,,PaymentInstructions,nvarchar(1000),Yes,,,None,,PaymentInstructions,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 1000
+dbo,OutboundWire,Outbound wire transfer transactions table,,WireFee,decimal(10,2),Yes,,,None,,WireFee,,,,,,,,,,BTREE,No,Nullable field,Optional decimal field with precision 10 scale 2
+dbo,OutboundWire,Outbound wire transfer transactions table,,ExchangeRate,decimal(10,6),Yes,,,None,,ExchangeRate,,,,,,,,,,BTREE,No,Nullable field,Optional decimal field with precision 10 scale 6
+dbo,OutboundWire,Outbound wire transfer transactions table,,FedwireReference,nvarchar(16),Yes,,,None,,FedwireReference,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 16
+dbo,OutboundWire,Outbound wire transfer transactions table,,ConfirmationNumber,nvarchar(100),Yes,,,None,,ConfirmationNumber,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,OutboundWire,Outbound wire transfer transactions table,,WireTypeId,int,No,,,NOT NULL,,WireTypeId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required integer field
+dbo,PageFeature,Page feature configuration table,,PageFeatureId,uniqueidentifier,No,,Primary key column,PK,,PageFeatureId,PRIMARY KEY CLUSTERED ([PageFeatureId] ASC),,,,,,,PK_PageFeature_PageFeatureId,PageFeatureId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,PageFeature,Page feature configuration table,,FeatureName,nvarchar(100),No,,,NOT NULL,,FeatureName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 100
+dbo,PageFeature,Page feature configuration table,,FeatureTypeId,uniqueidentifier,No,,,NOT NULL,,FeatureTypeId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PageFeature,Page feature configuration table,,FeatureUrl,nvarchar(255),Yes,,,None,,FeatureUrl,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,PageFeature,Page feature configuration table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,PageFeature,Page feature configuration table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field
+dbo,PageFeature,Page feature configuration table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,PageFeature,Page feature configuration table,,UpdatedBy,uniqueidentifier,Yes,,,None,,UpdatedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,PageFeature,Page feature configuration table,,UpdatedDate,datetime2(7),Yes,,,None,,UpdatedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,PaymentHeader,Payment header master table,,PaymentId,uniqueidentifier,No,,Primary key column,PK,PK_PaymentHeader,PaymentId,CONSTRAINT [PK_PaymentHeader] PRIMARY KEY CLUSTERED ([PaymentId] ASC),,,,,,,PK_PaymentHeader,PaymentId,CLUSTERED,Yes,NOT NULL constraint enforced,Named primary key constraint with clustered index
+dbo,PaymentHeader,Payment header master table,,PaymentNumber,nvarchar(50),Yes,,,None,,PaymentNumber,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 50
+dbo,PaymentHeader,Payment header master table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,CustomerId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PaymentHeader,Payment header master table,,EntityId,uniqueidentifier,No,,,NOT NULL,,EntityId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PaymentHeader,Payment header master table,,BankAccountId,uniqueidentifier,No,,,NOT NULL,,BankAccountId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PaymentHeader,Payment header master table,,BillId,uniqueidentifier,Yes,,,None,,BillId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,PaymentHeader,Payment header master table,,PaymentDate,date,No,,,NOT NULL,,PaymentDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required date field
+dbo,PaymentHeader,Payment header master table,,PaymentAmount,decimal(15,2),No,,,NOT NULL,,PaymentAmount,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required decimal field with precision 15 scale 2
+dbo,PaymentHeader,Payment header master table,,PaymentMethodTypeId,int,No,,,NOT NULL,,PaymentMethodTypeId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required integer field
+dbo,PaymentHeader,Payment header master table,,PaymentStatus,int,No,,,NOT NULL,,PaymentStatus,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required integer field
+dbo,PaymentHeader,Payment header master table,,BatchId,uniqueidentifier,Yes,,,None,,BatchId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,PaymentHeader,Payment header master table,,BAI2TransactionDetailId,uniqueidentifier,Yes,,,None,,BAI2TransactionDetailId,,,,,,,,,,BTREE,No,Nullable field,Optional field
+dbo,PaymentHeader,Payment header master table,,BankReferenceNumber,nvarchar(100),Yes,,,None,,BankReferenceNumber,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,PaymentHeader,Payment header master table,,SettledDate,date,Yes,,,None,,SettledDate,,,,,,,,,,BTREE,No,Nullable field,Optional date field
+dbo,PaymentHeader,Payment header master table,,PayeeName,nvarchar(255),No,,,NOT NULL,,PayeeName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 255
+dbo,PaymentHeader,Payment header master table,,PayeeAddressLine1,nvarchar(255),Yes,,,None,,PayeeAddressLine1,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,PaymentHeader,Payment header master table,,PayeeAddressLine2,nvarchar(255),Yes,,,None,,PayeeAddressLine2,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 255
+dbo,PaymentHeader,Payment header master table,,PayeeCity,nvarchar(100),Yes,,,None,,PayeeCity,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 100
+dbo,PaymentHeader,Payment header master table,,PayeeState,nvarchar(50),Yes,,,None,,PayeeState,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 50
+dbo,PaymentHeader,Payment header master table,,PayeePostalCode,nvarchar(20),Yes,,,None,,PayeePostalCode,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 20
+dbo,PaymentHeader,Payment header master table,,PayeeCountry,nvarchar(50),Yes,,,None,,PayeeCountry,,,,,,,,,,BTREE,No,Nullable field,Optional field with max length 50
+dbo,PaymentHeader,Payment header master table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field
+dbo,PaymentHeader,Payment header master table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,PaymentHeader,Payment header master table,,ModifiedBy,uniqueidentifier,Yes,,,None,,ModifiedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,PaymentHeader,Payment header master table,,ModifiedDate,datetime2(7),Yes,,,None,,ModifiedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,Permission,Permission master table,,PermissionId,uniqueidentifier,No,,Primary key column,PK,,PermissionId,PRIMARY KEY CLUSTERED ([PermissionId] ASC),,,,,,,PK_Permission_PermissionId,PermissionId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Permission,Permission master table,,PermissionName,nvarchar(50),No,,,NOT NULL,,PermissionName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 50
+dbo,Permission,Permission master table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,Permission,Permission master table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field
+dbo,Permission,Permission master table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,Permission,Permission master table,,UpdatedBy,uniqueidentifier,Yes,,,None,,UpdatedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,Permission,Permission master table,,UpdatedDate,datetime2(7),Yes,,,None,,UpdatedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,PermissionGroup,Permission group master table,,PermissionGroupId,uniqueidentifier,No,,Primary key column,PK,,PermissionGroupId,PRIMARY KEY CLUSTERED ([PermissionGroupId] ASC),,,,,,,PK_PermissionGroup_PermissionGroupId,PermissionGroupId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,PermissionGroup,Permission group master table,,GroupName,nvarchar(50),No,,,NOT NULL,,GroupName,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field with max length 50
+dbo,PermissionGroup,Permission group master table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,PermissionGroup,Permission group master table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field
+dbo,PermissionGroup,Permission group master table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,PermissionGroup,Permission group master table,,UpdatedBy,uniqueidentifier,Yes,,,None,,UpdatedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,PermissionGroup,Permission group master table,,UpdatedDate,datetime2(7),Yes,,,None,,UpdatedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
+dbo,PermissionPageFeature,Permission page feature mapping table,,PermissionPageFeatureId,uniqueidentifier,No,,Primary key column,PK,,PermissionPageFeatureId,PRIMARY KEY CLUSTERED ([PermissionPageFeatureId] ASC),,,,,,,PK_PermissionPageFeature_PermissionPageFeatureId,PermissionPageFeatureId,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,PermissionPageFeature,Permission page feature mapping table,,PermissionId,uniqueidentifier,No,,,NOT NULL,,PermissionId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PermissionPageFeature,Permission page feature mapping table,,PageFeatureId,uniqueidentifier,No,,,NOT NULL,,PageFeatureId,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required field
+dbo,PermissionPageFeature,Permission page feature mapping table,,IsActive,bit,No,,,NOT NULL,,IsActive,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required boolean field
+dbo,PermissionPageFeature,Permission page feature mapping table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,CreatedBy,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field
+dbo,PermissionPageFeature,Permission page feature mapping table,,CreatedDate,datetime2(7),No,,,NOT NULL,,CreatedDate,NOT NULL,,,,,,,,,BTREE,No,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,PermissionPageFeature,Permission page feature mapping table,,UpdatedBy,uniqueidentifier,Yes,,,None,,UpdatedBy,,,,,,,,,,BTREE,No,Nullable field,Optional audit field
+dbo,PermissionPageFeature,Permission page feature mapping table,,UpdatedDate,datetime2(7),Yes,,,None,,UpdatedDate,,,,,,,,,,BTREE,No,Nullable field,Optional audit field with precision 7
