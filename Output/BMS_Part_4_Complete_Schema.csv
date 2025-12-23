@@ -1,0 +1,318 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+dbo,BillHeader,Bill Header table for managing bill information,,BillId,uniqueidentifier,No,,,PK,PK_BillHeader_BillId,BillId,PRIMARY KEY CLUSTERED ([BillId] ASC),,,,,,,PK_BillHeader_BillId,BillId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillHeader,Bill Header table for managing bill information,,BillNumber,nvarchar(50),Yes,,,UK,,BillNumber,UNIQUE NONCLUSTERED ([BillNumber] ASC),,,,,,,UNIQUE INDEX,BillNumber,NONCLUSTERED,Yes,Unique constraint,Unique bill number
+dbo,BillHeader,Bill Header table for managing bill information,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required customer reference
+dbo,BillHeader,Bill Header table for managing bill information,,EntityId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required entity reference
+dbo,BillHeader,Bill Header table for managing bill information,,VendorId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required vendor reference
+dbo,BillHeader,Bill Header table for managing bill information,,InvoiceNumber,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Optional field,Invoice number reference
+dbo,BillHeader,Bill Header table for managing bill information,,InvoiceDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Invoice date
+dbo,BillHeader,Bill Header table for managing bill information,,DueDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Payment due date
+dbo,BillHeader,Bill Header table for managing bill information,,PaymentDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Actual payment date
+dbo,BillHeader,Bill Header table for managing bill information,,BillAmount,decimal(15,2),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill amount with 2 decimal precision
+dbo,BillHeader,Bill Header table for managing bill information,,CurrencyId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Currency reference
+dbo,BillHeader,Bill Header table for managing bill information,,PurchaseOrderNumber,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Purchase order reference
+dbo,BillHeader,Bill Header table for managing bill information,,PaymentMethodId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Payment method reference
+dbo,BillHeader,Bill Header table for managing bill information,,BankAccountId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Bank account reference
+dbo,BillHeader,Bill Header table for managing bill information,,PaymentTerms,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Payment terms description
+dbo,BillHeader,Bill Header table for managing bill information,,IsUrgentPriority,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Boolean flag for urgent priority
+dbo,BillHeader,Bill Header table for managing bill information,,IsAutoPayUponApproval,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Boolean flag for auto payment
+dbo,BillHeader,Bill Header table for managing bill information,,HoldPayment,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Boolean flag for payment hold
+dbo,BillHeader,Bill Header table for managing bill information,,HoldReason,nvarchar(500),Yes,,,None,,,,,,,,,,,,,Optional field,Reason for payment hold
+dbo,BillHeader,Bill Header table for managing bill information,,RemittanceAddressLine1,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance address line 1
+dbo,BillHeader,Bill Header table for managing bill information,,RemittanceAddressLine2,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance address line 2
+dbo,BillHeader,Bill Header table for managing bill information,,RemittanceCity,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance city
+dbo,BillHeader,Bill Header table for managing bill information,,RemittanceState,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance state
+dbo,BillHeader,Bill Header table for managing bill information,,RemittancePostalCode,nvarchar(20),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance postal code
+dbo,BillHeader,Bill Header table for managing bill information,,RemittanceCountry,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance country
+dbo,BillHeader,Bill Header table for managing bill information,,BillStatusTypeId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill status reference
+dbo,BillHeader,Bill Header table for managing bill information,,IsAccrualPosted,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Boolean flag for accrual posting
+dbo,BillHeader,Bill Header table for managing bill information,,AccrualPostedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Accrual posted date with precision 7
+dbo,BillHeader,Bill Header table for managing bill information,,BillTriggeredById,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required trigger reference
+dbo,BillHeader,Bill Header table for managing bill information,,Description,nvarchar(1000),Yes,,,None,,,,,,,,,,,,,Optional field,Bill description
+dbo,BillHeader,Bill Header table for managing bill information,,BillTypeId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill type reference
+dbo,BillHeader,Bill Header table for managing bill information,,BankPaymentStatusId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bank payment status reference
+dbo,BillHeader,Bill Header table for managing bill information,,BillTemplateId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Bill template reference
+dbo,BillHeader,Bill Header table for managing bill information,,ParentBillId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Parent bill reference
+dbo,BillHeader,Bill Header table for managing bill information,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required audit field - creator
+dbo,BillHeader,Bill Header table for managing bill information,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required audit field - creation date
+dbo,BillHeader,Bill Header table for managing bill information,,SubmittedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Submitted by user reference
+dbo,BillHeader,Bill Header table for managing bill information,,SubmittedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Submission date
+dbo,BillHeader,Bill Header table for managing bill information,,ApprovedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Approved by user reference
+dbo,BillHeader,Bill Header table for managing bill information,,ApprovedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Approval date
+dbo,BillHeader,Bill Header table for managing bill information,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modified by user reference
+dbo,BillHeader,Bill Header table for managing bill information,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BillHeader,Bill Header table for managing bill information,,IsDeleted,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Soft delete flag
+dbo,BillHeader,Bill Header table for managing bill information,,DeletedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deleted by user reference
+dbo,BillHeader,Bill Header table for managing bill information,,DeletedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Deletion date
+dbo,BillHeader,Bill Header table for managing bill information,,DeletionReason,nvarchar(500),Yes,,,None,,,,,,,,,,,,,Optional field,Reason for deletion
+dbo,BillHeaderDocument,Bill Header Document association table,,BillHeaderDocumentId,uniqueidentifier,No,,,PK,PK_BillHeaderDocument,BillHeaderDocumentId,PRIMARY KEY CLUSTERED ([BillHeaderDocumentId] ASC),,,,,,,PK_BillHeaderDocument,BillHeaderDocumentId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillHeaderDocument,Bill Header Document association table,,DocumentId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required document reference
+dbo,BillHeaderDocument,Bill Header Document association table,,BillHeaderId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill header reference
+dbo,BillHeaderDocument,Bill Header Document association table,,BillTemplateId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Bill template reference
+dbo,BillHeaderDocument,Bill Header Document association table,,Status,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Document status
+dbo,BillHeaderDocument,Bill Header Document association table,,IsStaged,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Staging flag
+dbo,BillHeaderDocument,Bill Header Document association table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,BillHeaderDocument,Bill Header Document association table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillHeaderDocument,Bill Header Document association table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BillHeaderDocument,Bill Header Document association table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BillHeaderDocument,Bill Header Document association table,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivated by reference
+dbo,BillHeaderDocument,Bill Header Document association table,,DeactivatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Deactivation date
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,BillRecurrenceConditionTypeId,int,No,,,PK,DF_BillRecurrenceConditionType_NEWID,BillRecurrenceConditionTypeId,PRIMARY KEY CLUSTERED ([BillRecurrenceConditionTypeId] ASC),,,,,,,DF_BillRecurrenceConditionType_NEWID,BillRecurrenceConditionTypeId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,BillRecurrenceConditionTypeName,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required condition type name
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,BillRecurrenceConditionTypeCode,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required condition type code
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillRecurrenceConditionType,Bill Recurrence Condition Type lookup table,,CreatedDate,datetime,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,BillRecurrenceTypeId,int,No,,,PK,PK_BillRecurrenceType,BillRecurrenceTypeId,PRIMARY KEY CLUSTERED ([BillRecurrenceTypeId] ASC),,,,,,,PK_BillRecurrenceType,BillRecurrenceTypeId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,BillRecurrenceTypeName,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required recurrence type name
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,BillRecurrenceTypeCode,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required recurrence type code
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillRecurrenceType,Bill Recurrence Type lookup table,,CreatedDate,datetime,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,BillRecurrenceUnitTypeId,int,No,,,PK,PK_BillRecurrenceUnitTypeID,BillRecurrenceUnitTypeId,PRIMARY KEY CLUSTERED ([BillRecurrenceUnitTypeId] ASC),,,,,,,PK_BillRecurrenceUnitTypeID,BillRecurrenceUnitTypeId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,BillRecurrenceUnitTypeName,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required unit type name
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,BillRecurrenceUnitTypeCode,varchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required unit type code
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillRecurrenceUnitType,Bill Recurrence Unit Type lookup table,,CreatedDate,datetime,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillTemplate,Bill Template table for recurring bills,,BillTemplateId,uniqueidentifier,No,,,PK,PK_BillTemplate_BillTemplateId,BillTemplateId,PRIMARY KEY CLUSTERED ([BillTemplateId] ASC),,,,,,,PK_BillTemplate_BillTemplateId,BillTemplateId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillTemplate,Bill Template table for recurring bills,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required customer reference
+dbo,BillTemplate,Bill Template table for recurring bills,,EntityId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required entity reference
+dbo,BillTemplate,Bill Template table for recurring bills,,TemplateName,nvarchar(255),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required template name
+dbo,BillTemplate,Bill Template table for recurring bills,,TemplateDescription,nvarchar(1000),Yes,,,None,,,,,,,,,,,,,Optional field,Template description
+dbo,BillTemplate,Bill Template table for recurring bills,,VendorId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Vendor reference
+dbo,BillTemplate,Bill Template table for recurring bills,,InvoiceNumber,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Optional field,Invoice number template
+dbo,BillTemplate,Bill Template table for recurring bills,,InvoiceDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Invoice date template
+dbo,BillTemplate,Bill Template table for recurring bills,,DueDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Due date template
+dbo,BillTemplate,Bill Template table for recurring bills,,PaymentDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,Payment date template
+dbo,BillTemplate,Bill Template table for recurring bills,,BillAmount,decimal(15,2),Yes,,,None,,,,,,,,,,,,,Optional field,Bill amount template with 2 decimal precision
+dbo,BillTemplate,Bill Template table for recurring bills,,TaxAmount,decimal(15,2),Yes,,,None,,,,,,,,,,,,,Optional field,Tax amount template with 2 decimal precision
+dbo,BillTemplate,Bill Template table for recurring bills,,NetAmount,decimal(15,2),Yes,,,None,,,,,,,,,,,,,Optional field,Net amount template with 2 decimal precision
+dbo,BillTemplate,Bill Template table for recurring bills,,CurrencyId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Currency reference
+dbo,BillTemplate,Bill Template table for recurring bills,,PurchaseOrderNumber,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Purchase order template
+dbo,BillTemplate,Bill Template table for recurring bills,,VendorPaymentMethodId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Vendor payment method reference
+dbo,BillTemplate,Bill Template table for recurring bills,,PaymentTerms,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Payment terms template
+dbo,BillTemplate,Bill Template table for recurring bills,,IsUrgentPriority,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Urgent priority flag
+dbo,BillTemplate,Bill Template table for recurring bills,,IsAutoPayUponApproval,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Auto pay flag
+dbo,BillTemplate,Bill Template table for recurring bills,,HoldPayment,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Hold payment flag
+dbo,BillTemplate,Bill Template table for recurring bills,,HoldReason,nvarchar(500),Yes,,,None,,,,,,,,,,,,,Optional field,Hold reason template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittanceAddressLine1,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance address line 1 template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittanceAddressLine2,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance address line 2 template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittanceCity,nvarchar(100),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance city template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittanceState,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance state template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittancePostalCode,nvarchar(20),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance postal code template
+dbo,BillTemplate,Bill Template table for recurring bills,,RemittanceCountry,nvarchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Remittance country template
+dbo,BillTemplate,Bill Template table for recurring bills,,Description,nvarchar(1000),Yes,,,None,,,,,,,,,,,,,Optional field,Template description
+dbo,BillTemplate,Bill Template table for recurring bills,,Notes,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Optional field,Template notes - unlimited length
+dbo,BillTemplate,Bill Template table for recurring bills,,HasRecurringSchedule,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Recurring schedule flag
+dbo,BillTemplate,Bill Template table for recurring bills,,HasVendorDetail,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Vendor detail flag
+dbo,BillTemplate,Bill Template table for recurring bills,,HasCurrentDoc,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Current document flag
+dbo,BillTemplate,Bill Template table for recurring bills,,HasCurrentDistribution,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Current distribution flag
+dbo,BillTemplate,Bill Template table for recurring bills,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillTemplate,Bill Template table for recurring bills,,TemplateStatus,nvarchar(30),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required template status
+dbo,BillTemplate,Bill Template table for recurring bills,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillTemplate,Bill Template table for recurring bills,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillTemplate,Bill Template table for recurring bills,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BillTemplate,Bill Template table for recurring bills,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,BillTemplateCustomDateId,uniqueidentifier,No,,,PK,PK_BillTemplateCustomDate,BillTemplateCustomDateId,PRIMARY KEY CLUSTERED ([BillTemplateCustomDateId] ASC),,,,,,,PK_BillTemplateCustomDate,BillTemplateCustomDateId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,BillTemplateRecurrenceScheduleId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required recurrence schedule reference
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,ScheduledDate,date,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required scheduled date
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillTemplateCustomDate,Bill Template Custom Date table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillTemplateDistribution,Bill Template Distribution table,,BillTemplateDistributionId,uniqueidentifier,No,,,PK,PK_BillTemplateDistribution,BillTemplateDistributionId,PRIMARY KEY CLUSTERED ([BillTemplateDistributionId] ASC),,,,,,,PK_BillTemplateDistribution,BillTemplateDistributionId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillTemplateDistribution,Bill Template Distribution table,,BillTemplateId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill template reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required customer reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,EntityId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required entity reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,ChartOfAccountsId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required chart of accounts reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,LineNumber,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required line number
+dbo,BillTemplateDistribution,Bill Template Distribution table,,GlAccountNumber,nvarchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required GL account number
+dbo,BillTemplateDistribution,Bill Template Distribution table,,GlAccountName,nvarchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,GL account name
+dbo,BillTemplateDistribution,Bill Template Distribution table,,LineItemDescription,nvarchar(1000),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required line item description
+dbo,BillTemplateDistribution,Bill Template Distribution table,,Amount,decimal(15,2),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required amount with 2 decimal precision
+dbo,BillTemplateDistribution,Bill Template Distribution table,,Is1099Eligible,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,1099 eligibility flag
+dbo,BillTemplateDistribution,Bill Template Distribution table,,DistributionType,nvarchar(20),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required distribution type
+dbo,BillTemplateDistribution,Bill Template Distribution table,,DistributionPercentage,decimal(5,2),Yes,,,None,,,,,,,,,,,,,Optional field,Distribution percentage with 2 decimal precision
+dbo,BillTemplateDistribution,Bill Template Distribution table,,ChildBillId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Child bill reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,Notes,nvarchar(1000),Yes,,,None,,,,,,,,,,,,,Optional field,Distribution notes
+dbo,BillTemplateDistribution,Bill Template Distribution table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillTemplateDistribution,Bill Template Distribution table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BillTemplateDistribution,Bill Template Distribution table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BillTemplateDistribution,Bill Template Distribution table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,BillTemplateRecurrenceScheduleId,uniqueidentifier,No,,,PK,PK_BillTemplateRecurrenceSchedule,BillTemplateRecurrenceScheduleId,PRIMARY KEY CLUSTERED ([BillTemplateRecurrenceScheduleId] ASC),,,,,,,PK_BillTemplateRecurrenceSchedule,BillTemplateRecurrenceScheduleId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,BillTemplateId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required bill template reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,StartDate,date,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required start date
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,EndDate,date,Yes,,,None,,,,,,,,,,,,,Optional field,End date
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,SkipWeekendAndHolidays,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Skip weekends and holidays flag
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,NextBillTemplateTriggerDate,date,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required next trigger date
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,BillRecurrenceTypeId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required recurrence type reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,BillRecurrenceConditionTypeId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Recurrence condition type reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,SelectedWeekDays,nvarchar(55),Yes,,,None,,,,,,,,,,,,,Optional field,Selected week days
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,DayOfPeriod,int,Yes,,,None,,,,,,,,,,,,,Optional field,Day of period
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,CustomIntervalNumber,int,Yes,,,None,,,,,,,,,,,,,Optional field,Custom interval number
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,BillRecurrenceUnitTypeId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Recurrence unit type reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,ModifiedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BillTemplateRecurrenceSchedule,Bill Template Recurrence Schedule table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,BusinessParty,Business Party table,,BusinessPartyId,uniqueidentifier,No,,,PK,,BusinessPartyId,PRIMARY KEY CLUSTERED ([BusinessPartyId] ASC),,,,,,,PRIMARY KEY,BusinessPartyId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BusinessParty,Business Party table,,BusinessPartyNumber,varchar(50),No,,,UK,,BusinessPartyNumber,UNIQUE NONCLUSTERED ([BusinessPartyNumber] ASC),,,,,,,UNIQUE INDEX,BusinessPartyNumber,NONCLUSTERED,Yes,NOT NULL and UNIQUE constraints,Unique business party number
+dbo,BusinessParty,Business Party table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,BusinessParty,Business Party table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BusinessParty,Business Party table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,BusinessParty,Business Party table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BusinessParty,Business Party table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,BusinessParty,Business Party table,,BusinessPartyTypeId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Business party type reference
+dbo,BusinessPartyType,Business Party Type lookup table,,BusinessPartyTypeId,uniqueidentifier,No,,,PK,,BusinessPartyTypeId,PRIMARY KEY CLUSTERED ([BusinessPartyTypeId] ASC),,,,,,,PRIMARY KEY,BusinessPartyTypeId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,BusinessPartyType,Business Party Type lookup table,,TypeCode,varchar(50),No,,,UK,,TypeCode,UNIQUE NONCLUSTERED ([TypeCode] ASC),,,,,,,UNIQUE INDEX,TypeCode,NONCLUSTERED,Yes,NOT NULL and UNIQUE constraints,Unique type code
+dbo,BusinessPartyType,Business Party Type lookup table,,TypeName,varchar(100),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required type name
+dbo,BusinessPartyType,Business Party Type lookup table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,BusinessPartyType,Business Party Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,BusinessPartyType,Business Party Type lookup table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,BusinessPartyType,Business Party Type lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,BusinessPartyType,Business Party Type lookup table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,CalendarPatternName,Calendar Pattern Name table,,CalendarPatternNameId,uniqueidentifier,No,,,PK,,CalendarPatternNameId,PRIMARY KEY CLUSTERED ([CalendarPatternNameId] ASC),,,,,,,PRIMARY KEY,CalendarPatternNameId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,CalendarPatternName,Calendar Pattern Name table,,CalendarPatternName,nvarchar(256),Yes,,,None,,,,,,,,,,,,,Optional field,Calendar pattern name
+dbo,CalendarPatternName,Calendar Pattern Name table,,CustomerId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required customer reference
+dbo,CalendarPatternName,Calendar Pattern Name table,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Entity reference
+dbo,CalendarPatternName,Calendar Pattern Name table,,NumberofPeriods,int,Yes,,,None,,,,,,,,,,,,,Optional field,Number of periods
+dbo,CalendarPatternName,Calendar Pattern Name table,,StartMonth,int,Yes,,,None,,,,,,,,,,,,,Optional field,Start month
+dbo,CalendarPatternName,Calendar Pattern Name table,,StartDay,int,Yes,,,None,,,,,,,,,,,,,Optional field,Start day
+dbo,CalendarPatternName,Calendar Pattern Name table,,EndMonth,int,Yes,,,None,,,,,,,,,,,,,Optional field,End month
+dbo,CalendarPatternName,Calendar Pattern Name table,,EndDay,int,Yes,,,None,,,,,,,,,,,,,Optional field,End day
+dbo,CalendarPatternName,Calendar Pattern Name table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,CalendarPatternName,Calendar Pattern Name table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,CalendarPatternName,Calendar Pattern Name table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,CalendarPatternName,Calendar Pattern Name table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,CalendarPatternName,Calendar Pattern Name table,,Status,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Status
+dbo,CalendarPatternName,Calendar Pattern Name table,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivated by reference
+dbo,CalendarPatternName,Calendar Pattern Name table,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivation date
+dbo,ChartOfAccounts,Chart of Accounts table,,ChartOfAccountsId,uniqueidentifier,No,,,PK,,ChartOfAccountsId,PRIMARY KEY CLUSTERED ([ChartOfAccountsId] ASC),,,,,,,PRIMARY KEY,ChartOfAccountsId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ChartOfAccounts,Chart of Accounts table,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Customer reference
+dbo,ChartOfAccounts,Chart of Accounts table,,ChartOfAccountsNameId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Chart of accounts name reference
+dbo,ChartOfAccounts,Chart of Accounts table,,AccountNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account number
+dbo,ChartOfAccounts,Chart of Accounts table,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Entity reference
+dbo,ChartOfAccounts,Chart of Accounts table,,AccountType,int,Yes,,,None,,,,,,,,,,,,,Optional field,Account type
+dbo,ChartOfAccounts,Chart of Accounts table,,AccountShortName,varchar(128),Yes,,,None,,,,,,,,,,,,,Optional field,Account short name
+dbo,ChartOfAccounts,Chart of Accounts table,,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account description
+dbo,ChartOfAccounts,Chart of Accounts table,,ParentAccountId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Parent account reference
+dbo,ChartOfAccounts,Chart of Accounts table,,IsSummary,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Summary account flag
+dbo,ChartOfAccounts,Chart of Accounts table,,IsPostable,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Postable account flag
+dbo,ChartOfAccounts,Chart of Accounts table,,Note,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account notes
+dbo,ChartOfAccounts,Chart of Accounts table,,Tags,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account tags
+dbo,ChartOfAccounts,Chart of Accounts table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,ChartOfAccounts,Chart of Accounts table,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivated by reference
+dbo,ChartOfAccounts,Chart of Accounts table,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivation date
+dbo,ChartOfAccounts,Chart of Accounts table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,ChartOfAccounts,Chart of Accounts table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,ChartOfAccounts,Chart of Accounts table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ChartOfAccounts,Chart of Accounts table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,ChartOfAccounts,Chart of Accounts table,,AccountCategoryId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Account category reference
+dbo,ChartOfAccounts,Chart of Accounts table,,AccountSubTypeName,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account sub type name
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ChartOfAccountsId,uniqueidentifier,No,,,PK,,ChartOfAccountsId,PRIMARY KEY CLUSTERED ([ChartOfAccountsId] ASC),,,,,,,PRIMARY KEY,ChartOfAccountsId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Customer reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ChartOfAccountsNameId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Chart of accounts name reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account number
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,EntityId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Entity reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountType,int,Yes,,,None,,,,,,,,,,,,,Optional field,Account type
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountSubType,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account sub type
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountShortName,varchar(128),Yes,,,None,,,,,,,,,,,,,Optional field,Account short name
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account description
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ParentAccountId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Parent account reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,IsSummary,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Summary account flag
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,IsPostable,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Postable account flag
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,Note,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account notes
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,Tags,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account tags
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivated by reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivation date
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountCategoryId,int,Yes,,,None,,,,,,,,,,,,,Optional field,Account category reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,AccountSubTypeName,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account sub type name
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,DeletedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deleted by reference
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,DeletedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Deletion date
+dbo,ChartOfAccountsHistory,Chart of Accounts History table,,ActionType,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Action type for history tracking
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,StagingId,uniqueidentifier,No,,,PK,PK_ChartOfAccountsImportStaging,StagingId,PRIMARY KEY CLUSTERED ([StagingId] ASC),,,,,,,PK_ChartOfAccountsImportStaging,StagingId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,ChartOfAccountsNameId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required chart of accounts name reference
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,BatchId,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Batch identifier
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,AccountNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account number
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,AccountName,varchar(256),Yes,,,None,,,,,,,,,,,,,Optional field,Account name
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,AccountType,int,Yes,,,None,,,,,,,,,,,,,Optional field,Account type
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,AccountSubType,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Account sub type
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,ParentAccountNumber,varchar(50),Yes,,,None,,,,,,,,,,,,,Optional field,Parent account number
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,IsValid,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Validation status flag
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,ValidationMessage,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Optional field,Validation message - unlimited length
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,StatusTypeId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required status type reference
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,CreatedDate,datetime2(7),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creation date
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,UpdatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Updated by reference
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,UpdatedDate,datetime2(7),Yes,,,None,,,,,,,,,,,,,Optional field,Update date
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Customer reference
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,AccountShortName,varchar(128),Yes,,,None,,,,,,,,,,,,,Optional field,Account short name
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account description
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,IsSummary,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Summary account flag
+dbo,ChartOfAccountsImportStaging,Chart of Accounts Import Staging table,,IsPostable,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Postable account flag
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,ChartOfAccountsNameId,uniqueidentifier,No,,,PK,,ChartOfAccountsNameId,PRIMARY KEY CLUSTERED ([ChartOfAccountsNameId] ASC),,,,,,,PRIMARY KEY,ChartOfAccountsNameId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,RetainedEarningsChartOfAccountsId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Retained earnings account reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,ARAccuralChartOfAccountsId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,AR accrual account reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,APAccrualChartOfAccountsId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,AP accrual account reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Customer reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,COAName,varchar(128),Yes,,,None,,,,,,,,,,,,,Optional field,Chart of accounts name
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Description
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,AccountNumberFormat,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Account number format
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,MaxHierarchyLevel,int,Yes,,,None,,,,,,,,,,,,,Optional field,Maximum hierarchy level
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,Note,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Notes
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,AllowSubSummary,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Allow sub summary flag
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,StatusTypeId,int,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required status type reference
+dbo,ChartOfAccountsName,Chart of Accounts Name table,,IsStaged,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Staging flag
+dbo,ColorChart,Color Chart lookup table,,ColorId,uniqueidentifier,No,,,PK,,ColorId,PRIMARY KEY CLUSTERED ([ColorId] ASC),,,,,,,PRIMARY KEY,ColorId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ColorChart,Color Chart lookup table,,ColorCode,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Color code
+dbo,ColorChart,Color Chart lookup table,,ColorName,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Color name
+dbo,ColorChart,Color Chart lookup table,,HexCode,varchar(7),Yes,,,None,,,,,,,,,,,,,Optional field,Hex color code
+dbo,ColorChart,Color Chart lookup table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,ColorChart,Color Chart lookup table,,Status,varchar(255),Yes,,,None,,,,,,,,,,,,,Optional field,Status
+dbo,ColorChart,Color Chart lookup table,,DeactivatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivated by reference
+dbo,ColorChart,Color Chart lookup table,,DeactivatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Deactivation date
+dbo,ColorChart,Color Chart lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ColorChart,Color Chart lookup table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,ColorChart,Color Chart lookup table,,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Creator reference
+dbo,ColorChart,Color Chart lookup table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,Contact,Contact association table,,ContactId,uniqueidentifier,No,,,PK,,"ContactId, ContactInfoId",PRIMARY KEY CLUSTERED ([ContactId] ASC [ContactInfoId] ASC),,,,,,,PRIMARY KEY,"ContactId, ContactInfoId",CLUSTERED,Yes,NOT NULL constraint,Composite primary key column 1
+dbo,Contact,Contact association table,,ContactInfoId,uniqueidentifier,No,,,PK,,"ContactId, ContactInfoId",PRIMARY KEY CLUSTERED ([ContactId] ASC [ContactInfoId] ASC),,,,,,,PRIMARY KEY,"ContactId, ContactInfoId",CLUSTERED,Yes,NOT NULL constraint,Composite primary key column 2
+dbo,Contact,Contact association table,,IsPrimary,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Primary contact flag
+dbo,Contact,Contact association table,,UseAsPrimaryAddress,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Use as primary address flag
+dbo,Contact,Contact association table,,StartDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Contact start date
+dbo,Contact,Contact association table,,EndDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Contact end date
+dbo,Contact,Contact association table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,Contact,Contact association table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,Contact,Contact association table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,Contact,Contact association table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,Contact,Contact association table,,IsActive,bit,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Active status flag
+dbo,ContactInformation,Contact Information table,,ContactInfoId,uniqueidentifier,No,,,PK,,ContactInfoId,PRIMARY KEY CLUSTERED ([ContactInfoId] ASC),,,,,,,PRIMARY KEY,ContactInfoId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ContactInformation,Contact Information table,,ContactTypeId,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required contact type reference
+dbo,ContactInformation,Contact Information table,,Value,nvarchar(max),Yes,,,None,,,,,,,,,,,,,Optional field,Contact value - unlimited length
+dbo,ContactInformation,Contact Information table,,IsVerified,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Verification status flag
+dbo,ContactInformation,Contact Information table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,ContactInformation,Contact Information table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,ContactInformation,Contact Information table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,ContactInformation,Contact Information table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ContactInformation,Contact Information table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
+dbo,ContactType,Contact Type lookup table,,ContactTypeId,uniqueidentifier,No,,,PK,,ContactTypeId,PRIMARY KEY CLUSTERED ([ContactTypeId] ASC),,,,,,,PRIMARY KEY,ContactTypeId,CLUSTERED,Yes,NOT NULL constraint,Primary key column
+dbo,ContactType,Contact Type lookup table,,TypeCode,varchar(20),No,,,UK,,TypeCode,UNIQUE NONCLUSTERED ([TypeCode] ASC),,,,,,,UNIQUE INDEX,TypeCode,NONCLUSTERED,Yes,NOT NULL and UNIQUE constraints,Unique type code
+dbo,ContactType,Contact Type lookup table,,TypeName,nvarchar(50),No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required type name
+dbo,ContactType,Contact Type lookup table,,ValidationPattern,varchar(500),Yes,,,None,,,,,,,,,,,,,Optional field,Validation pattern
+dbo,ContactType,Contact Type lookup table,,MaxLength,int,Yes,,,None,,,,,,,,,,,,,Optional field,Maximum length
+dbo,ContactType,Contact Type lookup table,,IsActive,bit,Yes,,,None,,,,,,,,,,,,,Optional field,Active status flag
+dbo,ContactType,Contact Type lookup table,,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,,,,,,,,,,,NOT NULL constraint,Required creator reference
+dbo,ContactType,Contact Type lookup table,,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Creation date
+dbo,ContactType,Contact Type lookup table,,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,Optional field,Modifier reference
+dbo,ContactType,Contact Type lookup table,,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,Optional field,Modification date
