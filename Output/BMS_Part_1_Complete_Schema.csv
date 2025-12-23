@@ -1,0 +1,187 @@
+Schema Name,Table Name,Table Description,Row Count,Column Name,Data Type,Nullability,Default Value,Column Comments,Constraint Type,Constraint Name,Constraint Columns,Constraint Definition,FK Source Table,FK Source Column(s),FK Target Table,FK Target Column(s),FK Update Rule,FK Delete Rule,Index Name,Index Columns,Index Type,Is Unique Index,Data Integrity Rules,Additional Notes
+bai2,BAI2AccountBalances,,N/A,BAI2AccountBalanceId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2AccountBalances,BAI2AccountBalanceId,PRIMARY KEY CLUSTERED ([BAI2AccountBalanceId] ASC),,,,,,,PK_BAI2AccountBalances,BAI2AccountBalanceId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2AccountBalances,,N/A,BAI2AccountId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2AccountBalances,,N/A,TypeCode,nvarchar(10),Yes,,,None,,,,,,,,,,,,,,,Nullable field for type classification
+bai2,BAI2AccountBalances,,N/A,Amount,bigint,Yes,,,None,,,,,,,,,,,,,,,Nullable numeric field
+bai2,BAI2AccountBalances,,N/A,ItemCount,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2AccountBalances,,N/A,Order,int,Yes,,,None,,,,,,,,,,,,,,,Nullable ordering field
+bai2,BAI2AccountFundTypes,,N/A,BAI2AccountFundsTypeId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2AccountFundTypes,BAI2AccountFundsTypeId,PRIMARY KEY CLUSTERED ([BAI2AccountFundsTypeId] ASC),,,,,,,PK_BAI2AccountFundTypes,BAI2AccountFundsTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2AccountFundTypes,,N/A,BAI2AccountBalanceId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2AccountFundTypes,,N/A,FundsType,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2AccountFundTypes,,N/A,ImmediateAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2AccountFundTypes,,N/A,OneDayAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2AccountFundTypes,,N/A,TwoOrMoreDaysAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2AccountFundTypes,,N/A,ValueDate,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2AccountFundTypes,,N/A,ValueTime,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2AccountFundTypes,,N/A,NumberOfDistributions,bigint,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required numeric field
+bai2,BAI2AccountFundTypes,,N/A,Field1,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2AccountFundTypes,,N/A,Field2,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2AccountFundTypes,,N/A,Field3,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2Accounts,,N/A,BAI2AccountId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2Accounts,BAI2AccountId,PRIMARY KEY CLUSTERED ([BAI2AccountId] ASC),,,,,,,PK_BAI2Accounts,BAI2AccountId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2Accounts,,N/A,BAI2GroupId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2Accounts,,N/A,CustomerAccountNumber,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2Accounts,,N/A,CurrencyCode,char(3),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Accounts,,N/A,AccountControlTotal,bigint,Yes,,,None,,,,,,,,,,,,,,,Nullable numeric field
+bai2,BAI2Accounts,,N/A,NumberOfRecords,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Accounts,,N/A,RawBAI2Account,text,Yes,,,None,,,,,,,,,,,,,,,Nullable text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,BAI2TransactionDetailsFundsTypesId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2ATransactionDetailsFundsTypes,BAI2TransactionDetailsFundsTypesId,PRIMARY KEY CLUSTERED ([BAI2TransactionDetailsFundsTypesId] ASC),,,,,,,PK_BAI2ATransactionDetailsFundsTypes,BAI2TransactionDetailsFundsTypesId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,BAI2TransactionDetailId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,FundsType,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,ImmediateAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,OneDayAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,TwoOrMoreDaysAmount,decimal(18,2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Decimal precision 18 scale 2
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,ValueDate,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,ValueTime,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,NumberOfDistributions,bigint,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required numeric field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,Field1,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,Field2,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2ATransactionDetailsFundsTypes,,N/A,Field3,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2Deliveries,,N/A,BAI2DeliveryId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2Deliveries,BAI2DeliveryId,PRIMARY KEY CLUSTERED ([BAI2DeliveryId] ASC),,,,,,,PK_BAI2Deliveries,BAI2DeliveryId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2Deliveries,,N/A,ReceiveFolder,nvarchar(max),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required unlimited text field
+bai2,BAI2Deliveries,,N/A,DestinationQueue,nvarchar(max),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required unlimited text field
+bai2,BAI2Deliveries,,N/A,NotifyEmail,nvarchar(max),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required unlimited text field
+bai2,BAI2FileParsingErrors,,N/A,BAI2FileParsingErrorId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2FileParsingErrors,BAI2FileParsingErrorId,PRIMARY KEY CLUSTERED ([BAI2FileParsingErrorId] ASC),,,,,,,PK_BAI2FileParsingErrors,BAI2FileParsingErrorId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2FileParsingErrors,,N/A,BAI2FileId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+bai2,BAI2FileParsingErrors,,N/A,BAI2GroupId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+bai2,BAI2FileParsingErrors,,N/A,BAI2AccountId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+bai2,BAI2FileParsingErrors,,N/A,BAI2TransactionDetailId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+bai2,BAI2FileParsingErrors,,N/A,BAI2ParsingErrorId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+bai2,BAI2FileParsingErrors,,N/A,ErrorMessage,varchar(max),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required error message field
+bai2,BAI2FileParsingErrors,,N/A,LineNumber,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2FileParsingErrors,,N/A,ReceivedValue,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+bai2,BAI2Files,,N/A,BAI2FileId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2Files,BAI2FileId,PRIMARY KEY CLUSTERED ([BAI2FileId] ASC),,,,,,,PK_BAI2Files,BAI2FileId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2Files,,N/A,FileName,varchar(2000),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required file name field
+bai2,BAI2Files,,N/A,SenderId,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2Files,,N/A,ReceiverId,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2Files,,N/A,FileCreationDate,char(6),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Files,,N/A,FileCreationTime,char(4),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Files,,N/A,FileIdNumber,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Files,,N/A,PhysicalRecordLength,tinyint,Yes,,,None,,,,,,,,,,,,,,,Nullable small integer field
+bai2,BAI2Files,,N/A,BlockSize,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Files,,N/A,VersionNumber,char(1),Yes,,,None,,,,,,,,,,,,,,,Nullable single character field
+bai2,BAI2Files,,N/A,FileControlTotal,bigint,Yes,,,None,,,,,,,,,,,,,,,Nullable numeric field
+bai2,BAI2Files,,N/A,NumberOfGroups,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Files,,N/A,NumberOfRecords,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Files,,N/A,RawBAI2File,text,Yes,,,None,,,,,,,,,,,,,,,Nullable text field
+bai2,BAI2Files,,N/A,ProcessingTotalTime,float,Yes,,,None,,,,,,,,,,,,,,,Nullable floating point field
+bai2,BAI2Files,,N/A,ProcessingDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable datetime field
+bai2,BAI2Files,,N/A,Status,nvarchar(10),Yes,,,None,,,,,,,,,,,,,,,Nullable status field
+bai2,BAI2Groups,,N/A,BAI2GroupId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2Groups,BAI2GroupId,PRIMARY KEY CLUSTERED ([BAI2GroupId] ASC),,,,,,,PK_BAI2Groups,BAI2GroupId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2Groups,,N/A,BAI2FileId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2Groups,,N/A,ReceiverId,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2Groups,,N/A,SenderId,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2Groups,,N/A,GroupStatus,tinyint,Yes,,,None,,,,,,,,,,,,,,,Nullable small integer field
+bai2,BAI2Groups,,N/A,AsOfDate,char(6),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Groups,,N/A,AsOfTime,char(4),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Groups,,N/A,CurrencyCode,char(3),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2Groups,,N/A,AsOfDateModifier,tinyint,Yes,,,None,,,,,,,,,,,,,,,Nullable small integer field
+bai2,BAI2Groups,,N/A,GroupControlTotal,bigint,Yes,,,None,,,,,,,,,,,,,,,Nullable numeric field
+bai2,BAI2Groups,,N/A,NumberOfAccounts,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Groups,,N/A,NumberOfRecords,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+bai2,BAI2Groups,,N/A,RawBAI2Group,text,Yes,,,None,,,,,,,,,,,,,,,Nullable text field
+bai2,BAI2ParsingErrorLevels,,N/A,BAI2ParsingErrorLevelId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2ParsingErrorLevels,BAI2ParsingErrorLevelId,PRIMARY KEY CLUSTERED ([BAI2ParsingErrorLevelId] ASC),,,,,,,PK_BAI2ParsingErrorLevels,BAI2ParsingErrorLevelId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2ParsingErrorLevels,,N/A,LevelDescription,varchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required description field
+bai2,BAI2ParsingErrorLevels,,N/A,LevelCode,varchar(2),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required code field
+bai2,BAI2ParsingErrors,,N/A,BAI2ParsingErrorId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2ParsingErrors,BAI2ParsingErrorId,PRIMARY KEY CLUSTERED ([BAI2ParsingErrorId] ASC),,,,,,,PK_BAI2ParsingErrors,BAI2ParsingErrorId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2ParsingErrors,,N/A,BAI2ParsingErrorSeverityId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2ParsingErrors,,N/A,BAI2ParsingErrorLevelId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2ParsingErrorSeverities,,N/A,BAI2ParsingErrorSeverityId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2ParsingErrorSeverities,BAI2ParsingErrorSeverityId,PRIMARY KEY CLUSTERED ([BAI2ParsingErrorSeverityId] ASC),,,,,,,PK_BAI2ParsingErrorSeverities,BAI2ParsingErrorSeverityId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2ParsingErrorSeverities,,N/A,Name,varchar(250),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required name field
+bai2,BAI2TransactionDetail,,N/A,BAI2TransactionDetailId,uniqueidentifier,No,,Primary key column,PK,PK_BAI2TransactionDetail,BAI2TransactionDetailId,PRIMARY KEY CLUSTERED ([BAI2TransactionDetailId] ASC),,,,,,,PK_BAI2TransactionDetail,BAI2TransactionDetailId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+bai2,BAI2TransactionDetail,,N/A,BAI2AccountId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+bai2,BAI2TransactionDetail,,N/A,TypeCode,char(3),Yes,,,None,,,,,,,,,,,,,,,Nullable fixed length character field
+bai2,BAI2TransactionDetail,,N/A,Amount,bigint,Yes,,,None,,,,,,,,,,,,,,,Nullable numeric field
+bai2,BAI2TransactionDetail,,N/A,BankReferenceNumber,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2TransactionDetail,,N/A,CustomerReferenceNumber,varchar(2000),Yes,,,None,,,,,,,,,,,,,,,Nullable variable length string
+bai2,BAI2TransactionDetail,,N/A,Text,text,Yes,,,None,,,,,,,,,,,,,,,Nullable text field
+bai2,BAI2TransactionDetail,,N/A,RawBAI2Group,text,Yes,,,None,,,,,,,,,,,,,,,Nullable text field
+bai2,BAI2TransactionDetail,,N/A,Order,int,Yes,,,None,,,,,,,,,,,,,,,Nullable ordering field
+dbo,AccountCategory,,N/A,AccountCategoryId,int,No,,Primary key column,PK,PRIMARY KEY,AccountCategoryId,PRIMARY KEY CLUSTERED ([AccountCategoryId] ASC),,,,,,,PRIMARY KEY,AccountCategoryId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AccountCategory,,N/A,AccountCategoryName,varchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required category name field
+dbo,AccountCategory,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,AccountCategory,,N/A,IsActive,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,AccountCategory,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountCategory,,N/A,CreatedDate,datetime,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountCategory,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountCategory,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSecurity,,N/A,AccountSecurityId,uniqueidentifier,No,,Primary key column,PK,PRIMARY KEY,AccountSecurityId,PRIMARY KEY CLUSTERED ([AccountSecurityId] ASC),,,,,,,PRIMARY KEY,AccountSecurityId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AccountSecurity,,N/A,UserId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AccountSecurity,,N/A,CustomerId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AccountSecurity,,N/A,EntityId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AccountSecurity,,N/A,LineNumber,int,Yes,,,None,,,,,,,,,,,,,,,Nullable integer field
+dbo,AccountSecurity,,N/A,FromCode,varchar(50),Yes,,,None,,,,,,,,,,,,,,,Nullable code field
+dbo,AccountSecurity,,N/A,ToCode,varchar(50),Yes,,,None,,,,,,,,,,,,,,,Nullable code field
+dbo,AccountSecurity,,N/A,HasAccess,bit,Yes,,,None,,,,,,,,,,,,,,,Nullable boolean field
+dbo,AccountSecurity,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Nullable boolean field
+dbo,AccountSecurity,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSecurity,,N/A,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSecurity,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSecurity,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSubType,,N/A,AccountSubTypeId,int,No,,Primary key column,PK,PRIMARY KEY,AccountSubTypeId,PRIMARY KEY CLUSTERED ([AccountSubTypeId] ASC),,,,,,,PRIMARY KEY,AccountSubTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AccountSubType,,N/A,AccountTypeId,int,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AccountSubType,,N/A,AccountSubTypeName,varchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required subtype name field
+dbo,AccountSubType,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,AccountSubType,,N/A,IsActive,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,AccountSubType,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountSubType,,N/A,CreatedDate,datetime,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountSubType,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountSubType,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountType,,N/A,AccountTypeId,int,No,,Primary key column,PK,PRIMARY KEY,AccountTypeId,PRIMARY KEY CLUSTERED ([AccountTypeId] ASC),,,,,,,PRIMARY KEY,AccountTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AccountType,,N/A,AccountTypeName,varchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required type name field
+dbo,AccountType,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,AccountType,,N/A,IsActive,bit,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required boolean field
+dbo,AccountType,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountType,,N/A,CreatedDate,datetime,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AccountType,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AccountType,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,Address,,N/A,Id,uniqueidentifier,No,,Primary key column,PK,PRIMARY KEY,Id,PRIMARY KEY CLUSTERED ([Id] ASC),,,,,,,PRIMARY KEY,Id ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,Address,,N/A,AddressTypeId,char(1),Yes,,,None,,,,,,,,,,,,,,,Nullable single character field
+dbo,Address,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,Address,,N/A,AddressLineOne,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,Address,,N/A,AddressLineTwo,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,Address,,N/A,City,varchar(100),Yes,,,None,,,,,,,,,,,,,,,Nullable city field
+dbo,Address,,N/A,State,varchar(50),Yes,,,None,,,,,,,,,,,,,,,Nullable state field
+dbo,Address,,N/A,PostalCode,varchar(20),Yes,,,None,,,,,,,,,,,,,,,Nullable postal code field
+dbo,Address,,N/A,Country,varchar(100),Yes,,,None,,,,,,,,,,,,,,,Nullable country field
+dbo,Address,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Nullable boolean field
+dbo,Address,,N/A,CreatedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,Address,,N/A,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,Address,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,Address,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressDetail,,N/A,AddressDetailId,uniqueidentifier,No,,Primary key column,PK,PRIMARY KEY,AddressDetailId,PRIMARY KEY CLUSTERED ([AddressDetailId] ASC),,,,,,,PRIMARY KEY,AddressDetailId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AddressDetail,,N/A,AddressTypeId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AddressDetail,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,AddressDetail,,N/A,AddressLineOne,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,AddressDetail,,N/A,AddressLineTwo,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,AddressDetail,,N/A,City,varchar(100),Yes,,,None,,,,,,,,,,,,,,,Nullable city field
+dbo,AddressDetail,,N/A,State,varchar(50),Yes,,,None,,,,,,,,,,,,,,,Nullable state field
+dbo,AddressDetail,,N/A,PostalCode,varchar(20),Yes,,,None,,,,,,,,,,,,,,,Nullable postal code field
+dbo,AddressDetail,,N/A,CountryId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AddressDetail,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Nullable boolean field
+dbo,AddressDetail,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AddressDetail,,N/A,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressDetail,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressDetail,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressDetail,,N/A,AddressLineThree,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,AddressDetail,,N/A,AddressLineFour,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable address field
+dbo,AddressDetailHistory,,N/A,HistoryId,uniqueidentifier,No,,Primary key column,PK,PRIMARY KEY,HistoryId,PRIMARY KEY CLUSTERED ([HistoryId] ASC),,,,,,,PRIMARY KEY,HistoryId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AddressDetailHistory,,N/A,AddressDetailId,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Foreign key reference expected
+dbo,AddressDetailHistory,,N/A,CustomerId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable foreign key reference
+dbo,AddressDetailHistory,,N/A,FieldName,nvarchar(100),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required field name
+dbo,AddressDetailHistory,,N/A,OldValue,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+dbo,AddressDetailHistory,,N/A,NewValue,nvarchar(max),Yes,,,None,,,,,,,,,,,,,,,Nullable unlimited text field
+dbo,AddressDetailHistory,,N/A,ChangeType,nvarchar(10),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required change type field
+dbo,AddressDetailHistory,,N/A,ChangedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressDetailHistory,,N/A,ChangedDate,datetime2(7),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field with precision 7
+dbo,AddressDetailHistory,,N/A,ChangeReason,nvarchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable reason field
+dbo,AddressDetailHistory,,N/A,TransactionId,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable transaction reference
+dbo,AddressType,,N/A,AddressTypeId,uniqueidentifier,No,,Primary key column,PK,PRIMARY KEY,AddressTypeId,PRIMARY KEY CLUSTERED ([AddressTypeId] ASC),,,,,,,PRIMARY KEY,AddressTypeId ASC,CLUSTERED,Yes,NOT NULL constraint enforced,Primary key with clustered index
+dbo,AddressType,,N/A,TypeCode,varchar(20),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required type code field
+dbo,AddressType,,N/A,TypeCode,varchar(20),No,,Unique constraint,UNIQUE,UNIQUE NONCLUSTERED,TypeCode,UNIQUE NONCLUSTERED ([TypeCode] ASC),,,,,,,UNIQUE NONCLUSTERED,TypeCode ASC,NONCLUSTERED,Yes,UNIQUE constraint enforced,Unique constraint on TypeCode
+dbo,AddressType,,N/A,TypeName,varchar(50),No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required type name field
+dbo,AddressType,,N/A,Description,varchar(255),Yes,,,None,,,,,,,,,,,,,,,Nullable description field
+dbo,AddressType,,N/A,IsActive,bit,Yes,,,None,,,,,,,,,,,,,,,Nullable boolean field
+dbo,AddressType,,N/A,CreatedBy,uniqueidentifier,No,,,NOT NULL,,,NOT NULL,,,,,,,,,,,NOT NULL constraint enforced,Required audit field
+dbo,AddressType,,N/A,CreatedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressType,,N/A,ModifiedBy,uniqueidentifier,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
+dbo,AddressType,,N/A,ModifiedDate,datetime,Yes,,,None,,,,,,,,,,,,,,,Nullable audit field
